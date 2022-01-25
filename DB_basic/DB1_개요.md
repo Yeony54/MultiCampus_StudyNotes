@@ -4,15 +4,21 @@ SQL DataBase
 
 데이터베이스란 무엇인가?
 
+
+
 ---
+
+
 
 #### 1. DataBase란?
 
 **DataBase**는 데이터의 집합을 의미한다. 종이, 데이터 형태의 상관없이 대용량의 데이터를 체계적으로 구성해 놓은것을 DataBase라고 칭할 수 있다.
 
-DataBase는 여러개가 존재할 수 있고, 이를 여러사람이 사용할 수 있다.
+DataBase는 여러개가 존재할 수 있고, 이를 프로그램을 통해 여러사람이 사용할 수 있다.
 
 이렇게 DataBase를 사용하기 위해 지원하는 여러 프로그램을 **DBMS**라고 한다.
+
+
 
 #### 2. DBMS (Database Management System)
 
@@ -27,6 +33,8 @@ DataBase는 여러개가 존재할 수 있고, 이를 여러사람이 사용할 
 | Oracle     | Oracle      | 대형         |
 | DB2        | IBM         | main frame |
 | SQL Server | MS          |            |
+
+
 
 #### 3. DBMS의 종류
 
@@ -54,6 +62,8 @@ DataBase는 여러개가 존재할 수 있고, 이를 여러사람이 사용할 
   
   - 커다란 발전을 이룸
 
+
+
 #### 4. MySQL 사용 방법
 
 MySQL은 CS(Client-Server)구조를 가진다. 
@@ -65,6 +75,12 @@ DB를 활용하기 위해서는 MySQL Server에 접속을 해야하는데 3가�
 - 타 사에서 만든 프로그램을 사용 (DBeaver, DataGrip)
 
 - MySQL의 GUI 프로그램을 사용 (workbench)
+
+
+
+---
+
+
 
 앞으로 MySQL이 제공하는 workbench를 사용하여 DB실습을 할것이다.
 
