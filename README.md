@@ -7,19 +7,13 @@ Project type AI service development Study
 
 
 
-#### Python Basic
-
-Python data structure and basics
+Python Basic
 
 - Built-in Data Type
 - Control Statement
 - Function
 - Object Oriented (Class)
 
-git 
-
-#### DataBase Basic
-
-DataBase basics
+Data Base Basic
 
 - SQL
