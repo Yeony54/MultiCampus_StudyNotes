@@ -5,14 +5,21 @@ Project type AI service development Study
 
 ## Files
 
+
+
 #### Python Basic
 
-About Python data structure and basics
+Python data structure and basics
 
 - Built-in Data Type
 - Control Statement
 - Function
-- Object Oriented
+- Object Oriented (Class)
 
 
 
+#### DataBase Basic
+
+DataBase basics
+
+- SQL
