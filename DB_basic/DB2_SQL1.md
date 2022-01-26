@@ -4,10 +4,50 @@ SQL DataBase
 
 DataBase 실습을 위해 MySQL을 설치하고 동작해 보았던 것들을 기록한다.
 
+- SQL 분류 
+  - DML, DDL, DCL
 - SQL 간단 설명
 - 색인 설명
 
+
+
 ---
+
+
+
+#### SQL이란?
+
+**SQL(Structured Query Language)** 는 구조적 질의 언어이다.
+
+(관계형)데이터베이스에서 사용하는 프로그래밍 언어 **표준**으로 한번 익혀놓으면 다른 관계형 데이터베이스에서도 사용이 가능하다.
+
+하지만 SQL언어를 사용하는 프로그램에 따라 기능이 다른것들도 있기 때문에 유의해야 한다.
+
+
+
+##### SQL의 3가지 분류
+
+SQL은 3가지로 분류할 수 있다.
+
+- DML (Data Manipulation Language) - 데이터 조작언어
+- DDL (Data Definition Language) - 데이터 정의언어
+- DCL (Data Control Language) - 데이터 제어 언어
+
+
+
+그 중에서 DML을 가장 많이 사용한다.
+
+DML의 명령어에는 INSERT, DELETE, UPDATE, SELECT가 존재한다.
+
+
+
+<i>이는 CRUD 작업에 해당하는 것들이다.</i>
+
+<i>CRUD는 데이터에서 처리하는 4가지 작업으로 (Create, Read, Update, Delete)로 구분된다.</i>
+
+
+
+----
 
 
 
@@ -20,7 +60,13 @@ DataBase 실습을 위해 MySQL을 설치하고 동작해 보았던 것들을 �
 
 
 
-##### Table 요소 설명
+---
+
+
+
+
+
+#### 실습 Table 요소 설명
 
 <member TBL 테이블 설명>
 
@@ -42,7 +88,7 @@ DataBase 실습을 위해 MySQL을 설치하고 동작해 보았던 것들을 �
 
 
 
-##### SQL 실습 코드
+#### SQL 실습 코드
 
 
 
@@ -137,13 +183,44 @@ SELECT구문으로 잘 삽입이 되었는지 확인해 본다.
 
 #### Database의 Index(색인)
 
+
+
+이전에서 만들어진 indexTBL에서 'Mary' 라는 이름을 조회해 보자.
+
+```sql
+SELECT * FROM shopdb.indexTBL WHERE first_name = 'Mary';
+```
+
+SELECT를 통해 Mary를 조회할 수 있다, 하지만 Full table scan을 사용해 처음부터 Mary를 검색하기 때문에 효율이 떨어진다.
+
+
+
+그래서  색인을 사용하는 것이다.
+
+indexTBL의 first_name에 index를 설정해보자.
+
+```sql
+CREATE INDEX idx_indextbl_firstname on shopdb.indexTBL(first_name);
+SELECT * FROM shopdb.indexTBL WHERE first_name = 'Mary';
+```
+
+CREATE 구문을 통해 INDEX를 만들어준다.
+
+그리고 Mary를 조회하게 되면, 이전에서와 달리 속도가 5배 정도 빠른것을 알 수 있다.
+
+
+
+
+
 **색인**이란 검색을 빠르게 하기 위해서 사용한다.
 
-column 안에 있는 값을 사용해 Index를 설정하고 B-Tree구조의 형태로 데이터를 분배시켜서 저장하는 Index를 따로 생성한다.
+Index의 종류에는 **clustered Index**와 **secondary Index** 가 있는데 색인을 생성할 때에는 secondary Index 방법이 사용된다.
 
-B-Tree는 빠르게 찾는데 최적화 되어있지만, 무조건 좋은것은 아니다.
+**Secondary Index**방식은 column 안에 있는 값을 사용해 Index를 설정하고 B-Tree구조의 형태로 데이터를 분배시켜서 저장하는 Index를 따로 생성한다.
 
+B-Tree는 빠르게 찾는데 최적화 되어있지만, Index의 내용이 변경(추가, 삭제, 변경)될 경우 B-Tree를 다시 생성해야하면서 Overhead가 발생하게 된다.
 
+그래서 Index가 빠르게 찾을 수 있다고 무조건적으로 좋은것이 아니고, 전체적인 performance를 따져 index를 꼭 사용해야하는 곳에만 만드는 것이 중요하다.
 
 
 
