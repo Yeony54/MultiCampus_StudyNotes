@@ -2,9 +2,9 @@ SQL DataBase
 
 ## DataBase SQL 실습
 
-DataBase SQL 실습
+DataBase SQL 예시 Table
 
-- Database, Table 생성
+- Database, 예시 Table 생성
 
 
 

@@ -17,3 +17,6 @@ Python Basic
 Data Base Basic
 
 - SQL
+- SELECT
+- TRANSACTION
+- JOIN
