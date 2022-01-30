@@ -27,7 +27,7 @@ SQL DataBase
    - 논리연산자, 비교연산자
    - BETWEEN 연산자
    - LIKE 연산자, 패턴매칭
-   - IN, ANY, ALL
+   - IN, NOT IN, ANY, ALL
    - DISTINCT
    - LIMIT 사용법
    - SQL 응용 테이블복사

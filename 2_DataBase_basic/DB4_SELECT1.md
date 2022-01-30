@@ -16,7 +16,7 @@ SELECT
 - 논리연산자, 비교연산자
 - BETWEEN 연산자
 - LIKE 연산자, 패턴매칭
-- IN, ANY, ALL
+- IN, NOT IN, ANY, ALL
 - DISTINCT
 - LIMIT 사용법
 - SQL 응용 테이블복사
@@ -129,7 +129,7 @@ WHERE userName LIKE '김%';
 
 
 
-#### SQL : IN, ANY, ALL 연산자
+#### SQL : IN, NOT IN, ANY, ALL 연산자
 
 **IN** 연산자는 조건절에서 사용한다.
 
@@ -144,6 +144,19 @@ WHERE userHeight IN (176, 174, 172);
 ```
 
 OR 을 써서 만들 수 있는 구문을 IN을 이용해 더 간단하게 만들 수 있다.
+
+
+
+**NOT IN** 연산자는 IN과 반대되는 개념으로 하나라도 같은 값이 있다면 false이다.
+
+```SQL
+-- 키가 176, 174, 172가 아닌 사람의 아이디와 이름을 출력하세요
+SELECT userID, userName
+FROM userTBL
+WHERE userHeight NOT IN (176, 174, 172);
+```
+
+NOT을 통해 IN과 반대되는 기능을 수행할 수 있다.
 
 
 
