@@ -67,7 +67,7 @@ Web Server는 Client의 요청에 따라 원하는 파일을 response로 응답�
 
 #### Web 동작하기
 
-- HTML
+- HTML (HyperText Markup Language)
     - Domtree (Document Object Model Tree)
 - CSS
 - JavaScript : HTML, CSS로 browser에 rendering된 환경을 동적으로 제어
