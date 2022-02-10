@@ -13,7 +13,7 @@ GitHub
 
 
 
-#### Git, GitHub?
+### Git, GitHub?
 
 
 
@@ -45,7 +45,7 @@ IT 업계에서 하나의 프로그램을 만들기 위해 여러사람이 투�
 
 
 
-#### Git 기본용어
+### Git 기본용어
 
 
 
@@ -63,7 +63,49 @@ IT 업계에서 하나의 프로그램을 만들기 위해 여러사람이 투�
 
 
 
-#### GitHub 명령어
+### Git 설정
+
+
+
+```bash
+# GitHub ID/PW 캐싱데이터 삭제 (삭제 시 문제없음)
+# 다른(사람) GitHub 계정과의 충돌 방지
+$ git config --global --unset credential.helper
+$ git config --system --unset credential.helper
+
+# GitHub 계정 이메일 주소 및 본인 영문이름
+# 소스코드 파일 수정내역(commit) 저자(author) 정보
+$ git config --global user.name "Gim Chulsu"
+$ git config --global user.email gcs1234@gmail.com
+```
+
+
+
+```bash
+# Git 편집기
+# 원하는 편집기 설정 가능 (vim, emacs, nano, notepad 등)
+git config --global core.editor nano
+
+# nano 편집기 사용 시 설치 필요
+sudo apt install -y nano  ( commit 메세지 에디터 )
+```
+
+
+
+```bash
+# 잘 설치되었는지 확인
+git config -l
+```
+
+
+
+
+
+---
+
+
+
+### GitHub 명령어
 
 
 
@@ -98,12 +140,7 @@ IT 업계에서 하나의 프로그램을 만들기 위해 여러사람이 투�
 
 **git init** 기본 폴더에서는 git 명령어를 사용할 수 없다. 폴더에서 `git init`를 실행시키면 `.git`파일이 생기고 그 이후 git 명령어를 입력할 수 있게 된다.
 
-**git config** 'configure'의 줄인말로 처음에 깃을 설정할때 많이 사용한다. 아래 명령어는 사용자 이름, 이메일을 입력하는 방법이다.
-
-```bash
-$ git config --global user.name "Gim Chulsu"
-$ git config --global user.email gcs1234@gmail.com
-```
+**git config** 'configure'의 줄인말로 처음에 깃을 설정할때 많이 사용한다.
 
 **git help** 명령어를 잊어버렸을때 명령어를 열거해 준다. -h나 man의 형태로도 사용한다.
 
@@ -144,7 +181,25 @@ $ git commit -m "commit 문구"
 
 
 
-#### GitHub 프로젝트 협업 참여 시나리오
+#### git log 정리
+
+git log : git의 history 조회
+
+- `git log` 커밋 히스토리의 내용 보기
+- `git log --oneline` 커밋 히스토리 한줄 씩 보기
+- `git log --oneline --no-merges` merge commit 없이 검색
+- `git log -p` 커밋메시지와 함께 diff 수정내용까지 보기
+- `git log --oneline -- 파일명/`특정 파일에 집중해서 보기
+- `git log --oneline --after=2020-01-01 --before=2020-06-30` 기간
+- `git log --reverse -- minist/main.py` 거꾸로 보기 => 옛날 소스파일 수정내역 보기
+
+
+
+---
+
+
+
+### GitHub 프로젝트 협업 참여 시나리오
 
 GitHub에서 공동 프로젝트**(upstream)**를 작업 할때, 공동 프로젝트 폴더에서 작업하지 않는다.
 
@@ -211,11 +266,18 @@ commit은 history로 저장되어져 과거의 기록을 보고 프로젝트를 
 
 
 
+**commit ID** : 소스파일 수정내역 고유한 ID (SHA1 해시값)
+
+**Merge Commit** : 병합이 된 것을 알려주는 깡통 Commit, 실제 commit된 것은 없다.
+
+- `git log --oneline --no-merges` merge commit 없이 검색
+
+
+
+
+
 **오픈소스에서 가장 개발을 많이 한사람 검색**
 
-- `git shortlog -s -n | nl`
-- `git shortlog -s -n --no-merges | nl`
-- `git shortlog -s -n --no-merges -- mnist/ | nl`
 - `git shortlog -s -n --no-merges --after=2019-01-01 -- mnist/ | nl`
 
 `-s` 는 개수를 요약하고, `-n`은 rank를 매겨 정렬해준다.
@@ -232,15 +294,51 @@ commit은 history로 저장되어져 과거의 기록을 보고 프로젝트를 
 
 **소스파일 수정내역 commit 개수 검색**
 
-- `git log --oneline | wc -l`
-- `git log --oneline -- mnist/ | wc -l`
 - `git log --oneline --no-merges --after=2019-01-01 -- mnist/ | wc -l`
 
+`wc`
+
+`-l`
+
+
+
+**소스파일 수정내역 수정한 소스파일 개수 검색**
+
+파일 변경이 일어날 때마다 diff가 있는것을 확인할 수 있다.
+
+diff가 있는 문자를 필터링해서 라인개수를 확인하여 수정한 소스파일 개수를 검색한다.
+
+- `git show 6c8e2ba | grep "diff --git"`
+- `git show 6c8e2ba | grep "diff --git" | wc -l`
 
 
 
 
 
+
+
+**<<기타>>**
+
+**commit message의 첫단어** 
+
+commit은 기록되는 것이기 때문에 마음대로 작성해서는 안된다. update라는 모호한 말은 No
+
+- Fix : 잘못된것을 고친다
+- Improve : 원래 잘 되던것을 개선한다 (10초->5초)
+- Add : 없던기능/옵션을 추가할 때
+          (함수추가, 클래스추가, 파일추가 리뷰 협업을 위해 Fix, Improve 등으로 표기권장)
+- Support : 예) 윈도우외에 리눅스 환경 추가 / x86->ARM
+- Refactor : 코드를 재배치, 깔끔하게 정리
+- Implement : 구현하다(Add랑 너무 비슷함)
+- Correct typo : 오탈자 수정
+
+
+
+---
+
+
+
+Git Branch
 
 
 
