@@ -21,6 +21,12 @@ Data Base Basic
 - TRANSACTION
 - JOIN
 
-Web
+Web FrontEnd
+
+- HTML
+- jQuery
+- AJAX
+
+Web BackEnd
 
 GitHub
