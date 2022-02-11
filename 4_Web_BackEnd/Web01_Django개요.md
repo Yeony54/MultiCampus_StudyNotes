@@ -18,5 +18,3 @@ Web Server는 이전 FrontEnd 에서도 다루었었다.
 
 WebClient
 
-![image-20220211170715554](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220211170715554.png)
-
