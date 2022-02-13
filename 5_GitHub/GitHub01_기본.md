@@ -94,7 +94,7 @@ sudo apt install -y nano  ( commit 메세지 에디터 )
 
 ```bash
 # 잘 설치되었는지 확인
-git config -l
+git config -list
 ```
 
 
