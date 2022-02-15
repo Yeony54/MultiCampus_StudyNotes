@@ -32,6 +32,10 @@ Web
 <a href="http://www.naver.com">네이버로 가기</a>
 ```
 
+- `href` : 연결할 주소 지정
+- target : 링크를 클릭할 때 창을 어떻게 열지 설정
+- title : 해당 링크에 마우스 커서를 올릴 때 도움말 설명을 설정
+
 
 
 ##### div, span
