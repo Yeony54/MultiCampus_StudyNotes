@@ -2,6 +2,7 @@ Web BackEnd
 
 ## Web BackEnd Django 개요
 
+- django 설치
 - django project 만들기
 - django project setting
 - application - table 만들기
@@ -14,11 +15,19 @@ Web BackEnd
 
 
 
+##### django 설치
+
+`pip install Django`
+
+django 프로젝트를 만들려면 설치되어있어야 함
+
+
+
 ##### **django project 만들기**
 
 anaconda prompt
 
-python-django 파일로 이동
+프로젝트 파일로 이동
 
 ```django-admin startproject mysite```
 
@@ -26,7 +35,7 @@ python-django 파일로 이동
 
 ##### **django project setting**
 
-가상환경 새로 만들기
+가상환경 새로 만들기 (그냥 base에서 해도 무관)
 
 django 설치 : ```conda install django```
 
@@ -57,7 +66,7 @@ setting 설정 :
 
 mysql module : ```pip install mysqlclient```
 
-workbench에 db 생성 : `Create DATABASE mysite0215_db;`
+**workbench**에 db 생성 : `Create DATABASE mysite0215_db;`
 
 table 생성 : `python manage.py migrate`
 
@@ -92,8 +101,8 @@ model.py :
           return self.choice_text
   ```
 
-- 명세서만들기 : python manage.py makemigrations
-- 명세서 기반 table 만들기 : python manage.py migrate
+- 명세서만들기 : `python manage.py makemigrations`
+- 명세서 기반 table 만들기 : `python manage.py migrate`
 
 admin.py : 
 

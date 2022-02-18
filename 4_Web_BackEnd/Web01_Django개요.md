@@ -2,19 +2,18 @@ Web BackEnd
 
 ## Web BackEnd Django 개요
 
-- Web Server 역사
-- Framework란?
-- Django 란?
-- Django 동작 방법
-- Django 프로젝트 생성
+- Web 변천사
+- Library vs Framework
+- Django
+- MVC pattern
+- MVT pattern
+- ORM
 
 ---
 
 
 
-#### Web Server 역사
-
-Web Server는 이전 FrontEnd 에서도 다루었었다.
+##### Web 변천사
 
 1. Static Web
 
@@ -42,9 +41,7 @@ Web Server는 이전 FrontEnd 에서도 다루었었다.
 
 
 
-#### Framework
-
-Library vs Framework
+##### Library vs Framework
 
 - Library
 
@@ -64,24 +61,41 @@ Library vs Framework
 
 
 
-Django
+##### Django
 
 - Python으로 만들어진 무료 Web application Framework
 - Web application을 개발할 때 기본적으로 구현하는 부분을 Django가 쉽게 이용할 수 있는 코드를 제공한다.
 
 
 
-MVC pattern
+##### MVC pattern
 
 - Design Pattern : 42개의 패턴 중 17개의 대표적인 패턴이 있고, 그중 6개가 자주 쓰인다.
 - 가장 많이 사용하는 패턴은 MVC pattern 이다.
-  - Model - View - Controller
+  - Model : DB 처리
+  - View : 사용자 Interface
+  - Controller : Logic 처리
 - 프로그램을 담당하는 기능에 따라 나누어서 짜는 특징이 있다.
 - Django는 MVC 의 변형인 MVT 패턴을 이용한다.
 
 
 
-MV
+##### MVT pattern
+
+- MCV 패턴과 다르다 주의!
+  - Model : DB 처리
+  - View : Logic 처리
+  - Template : Html등 데이터 처리
+- URL Conf 가 request를 받아서 View로 이동
+- View 에서 DB가 필요하면 Model로, Html이 필요하면 Template로 간다.
+- View가 Template에서 받은 데이터를 사용자에게 response 해준다.
+
+
+
+##### ORM (Object Relation Mapping) 
+
+- Python 객체를 DB 테이블에 매핑
+- 파이썬 클래스로 객체를 만들어 DB 핸들링
 
 
 
