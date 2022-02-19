@@ -84,17 +84,17 @@ $ git config --global user.email gcs1234@gmail.com
 ```bash
 # Git 편집기
 # 원하는 편집기 설정 가능 (vim, emacs, nano, notepad 등)
-git config --global core.editor nano
+$ git config --global core.editor nano
 
 # nano 편집기 사용 시 설치 필요
-sudo apt install -y nano  ( commit 메세지 에디터 )
+$ sudo apt install -y nano  ( commit 메세지 에디터 )
 ```
 
 
 
 ```bash
 # 잘 설치되었는지 확인
-git config -list
+$ git config -list
 ```
 
 
@@ -133,6 +133,14 @@ git config -list
 
 
 **git diff** : git에서 관리되는 것들 중 가장 최신의 변경 내용을 보여준다. 파일의 어떤 내용이 변경되었는지 차이점을 비교할 수 있다. 
+
+```bash
+# 편집기로 mnist/main.py 파일 수정
+$ nano mnist/main.py
+
+# 소스파일 수정한 내용 확인하기
+$ git diff
+```
 
 **git show** : commit의 정보를 확인하는 명령어
 
@@ -182,25 +190,33 @@ $ git remote -v				# 저장된 remote 보여줌
 
 **git shortlog** `git log`는 Git의 history 내의 commit 내역을 모두 보여준다. shortlog는 commit 메세지만 추려서 보여준다.  
 
+**git tag** 버전 확인
+
 
 
 **git stash** 수정한 내용 잠시 저장(stash) 하기, stash pop으로 저장한 내용 복구
 
 **git checkout** 파일복구 : local git 저장소에서 가져오다, 대출받다를 의미
 
-**git reset** add 명령 취소 
+> stash vs checkout
+>
+> checkout은 완전히 날려버린다.
+>
+> stash는 버리고 싶지 않으니 잠깐 임시저장하는느낌
 
-```bash
-$ git reset --hard HEAD~1 # 가장 위에서 첫번째 내용을 삭제
-```
+**git reset** add 명령 취소, commit 취소 등
+
+git reflog : 극한적인 복구 / 잘사용하지 않음
+
+
+
+**git blame** 소스코드가 어떤 커밋으로 만들어졌는지 확인가능, history 분석
+
+**nano [파일명]** 소스파일 수정 ( ctrl+o : 저장, ctrl+x : 나가기 ) 
 
 
 
 
-
-
-
-**nano [파일명]** 소스파일 수정
 
 
 
@@ -361,19 +377,245 @@ commit은 기록되는 것이기 때문에 마음대로 작성해서는 안된�
 
 
 
+
+
 ---
 
 
 
-Git Branch
+### 코드설명 & 예시
+
+
+
+#### Banch
+
+**브랜치 생성**
+
+```bash
+$ git checkout -b fix-mnist
+```
+
+작업내용을 대표하는 키워드로 Branch명을 생성하는것을 추천
+
+제일 처음 생성할때 `-b` 키워드를 추가하면 생성이 된다.
+
+
+
+**브랜치 이동하기**
+
+```bash
+$ git checkout master
+```
+
+`fix-mnist` 브랜치에서 `master`브랜치로 이동된다.
+
+
+
+**브랜치 삭제하기**
+
+```bash
+$ git branch -D fix-mnist
+```
+
+`-D` 키워드로 삭제할 수 있다.
+
+
+
+**브랜치 예시**
+
+```bash
+# fix-mnist 브랜치 생성
+$ git checkout -b fix-mnist
+
+# fix-mnist 브랜치에서 "hello.txt" 생성
+$ touch "hello.txt"
+
+# "hello.txt"의 commit 만들기
+$ git add hi.txt
+$ git commit -m "add txt"
+
+# master branch로 이동
+$ git checkout master
+
+# master branch에서 "hello.txt" 여부 확인 
+$ ls
+
+# fix-mnist로 이동해서 "hello.txt" 여부 확인
+$ git checkout fix-mnist
+$ ls
+
+```
 
 
 
 
 
-****
+---
 
 
+
+#### Rebase
+
+오픈소스 Github 최신 소스수정내역(commit)으로 Base 업데이트
+
+1. upstream 의 최신내용을 가져온다
+
+   ```bash
+   # upstream 저장소에서 최신 commit history 가져오기
+   $ git fetch upstream master
+   ```
+
+   pull 은 fetch+merge 형태로 가져온내용을 강제머지 시킨다.
+
+   fetch는 가져오기만 하고 현재 브랜치에 적용은 하지 않음
+
+   upstream/master branch 자동 생성
+
+2.  가져온 내용을 rebase
+
+   ```bash
+   # 최신 commit history 기준으로 베이스 갱신 (rebase)
+   $ git rebase upstream/master
+   ```
+
+3. Fork 저장소 GitHub 수정하기
+
+   ```bash
+   # Fork한 저장소(GitHub)도 수정하기 (PR 자동 갱신)
+   $ git push --force origin fix-mnist
+   ```
+
+   
+
+**rebase 취소**
+
+```bash
+$ git rebase --abort
+```
+
+
+
+
+
+---
+
+
+
+#### Rewind
+
+수정내역(commit) 과거시점으로 되감기(rewind)
+
+rebase 기능을 사용해서 한다.
+
+```bash
+# 수정하고 싶은 부분의 pick을 edit으로 수정 후 편집기 저장, 나가기
+$ git rebase -i --root
+
+# 되감은 시점에서 log 확인
+$ git log --oneline
+
+# 되감은 내용 풀기 (continue)
+$ git rebase --continue
+```
+
+
+
+log에 쌓여있는것들 중 중간에 있는 commit을 바꾸고 싶을 때 사용한다.
+
+base를 건드리려고 rewind를 하지 않는다.
+
+
+
+---
+
+
+
+#### Reset
+
+reset 너무 어려웡
+
+```bash
+# commit 에 쓴 파일을 남기고 commit이 지워짐
+# add 파일은 남아있는 상태
+$ git reset --soft HEAD~1
+
+# 이상태에서 reset 시 add 취소 (add된 파일을 안된상태로)
+$ git reset
+```
+
+``` bash
+# commit 삭제
+$ git reset --hard HEAD~1
+```
+
+
+
+
+
+---
+
+
+
+#### Tag
+
+특정 커밋 버전을 마킹한다.
+
+```bash
+# ?
+$ git fetch --tags
+
+# tag 확인
+$ git tag
+
+# 태그 생성
+$ git tag v0.12 b2650116
+
+# 태그 삭제
+$ git tag -d 0.12
+```
+
+```bash
+# v0.8 버전 (과거)로 현재 폴더 변경하기
+$ git reset --hard v0.8
+
+# 다시 원본 GitHub 프로젝트로 현재 폴더 변경하기
+$ git reset --hard origin/master
+```
+
+
+
+
+
+
+
+---
+
+
+
+### bash 문법
+
+**연산자**
+
+```bash
+# 연달아서 코드 사용가능
+$ touch hello_3.c && git add hello_3.c && git commit -m "test: add hello_3.c"
+```
+
+```bash
+$ echo "hi" ; echo "hello" # 앞에거가 오류나도 뒤에거 연달아 실행
+$ echo "hi" && echo "hello" # 앞에거 오류나면 에러나고 뒤에거 안함
+```
+
+
+
+**for문**
+
+```bash
+$ for i in {1..3}
+do
+touch hello_$i.c && git add hello_$i.c && git commit -m "test: add hello_$i.c"
+done
+```
 
 
 
