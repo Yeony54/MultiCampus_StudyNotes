@@ -132,9 +132,9 @@ git config -list
 
 
 
-**diff** : git에서 관리되는 것들 중 가장 최신의 변경 내용을 보여준다. 파일의 어떤 내용이 변경되었는지 차이점을 비교할 수 있다. 
+**git diff** : git에서 관리되는 것들 중 가장 최신의 변경 내용을 보여준다. 파일의 어떤 내용이 변경되었는지 차이점을 비교할 수 있다. 
 
-**show** : commit의 정보를 확인하는 명령어
+**git show** : commit의 정보를 확인하는 명령어
 
 
 
@@ -157,6 +157,8 @@ $ git add .     # all의 의미를 가짐
 
 ```bash
 $ git commit -m "commit 문구"
+$ git commit -sm "commit 문구"	 # 서명이 commit message안에 포함된다.
+$ git commit --amend			  # 최신 commit 수정하기
 ```
 
 **git branch** 협업하여 프로젝트를 만들 때 원본과 다른 공간에서 작업할 수 있는 기능
@@ -171,9 +173,34 @@ $ git commit -m "commit 문구"
 
 **git remote** GitHub등 로컬이 아닌 원격 저장소에 저장을 할 때 사용하는 주소 관리 명령어
 
+```bash
+$ git remote add upstream [프로젝트 URL]
+$ git remote -v				# 저장된 remote 보여줌
+```
+
 **git log** git의 history 조회
 
 **git shortlog** `git log`는 Git의 history 내의 commit 내역을 모두 보여준다. shortlog는 commit 메세지만 추려서 보여준다.  
+
+
+
+**git stash** 수정한 내용 잠시 저장(stash) 하기, stash pop으로 저장한 내용 복구
+
+**git checkout** 파일복구 : local git 저장소에서 가져오다, 대출받다를 의미
+
+**git reset** add 명령 취소 
+
+```bash
+$ git reset --hard HEAD~1 # 가장 위에서 첫번째 내용을 삭제
+```
+
+
+
+
+
+
+
+**nano [파일명]** 소스파일 수정
 
 
 
