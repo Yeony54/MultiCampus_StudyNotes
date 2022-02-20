@@ -1,6 +1,6 @@
-Web BackEnd
+Web Project
 
-## Web BackEnd Django 개요
+## Web Project : Polls 투표시스템
 
 - django 설치
 - django project 만들기
