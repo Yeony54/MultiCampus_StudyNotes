@@ -154,6 +154,8 @@ DB 에 저장하기 위한 모델 class 생성
    - 문제 1: 언어를 ko 기준으로 했는데, 한글 검색이 안됌
      - UnicodeEncodeError: 'ascii' codec can't encode characters in position 106-107: ordinal not in range(128)
      - qoute로 해결 : https://hengbokhan.tistory.com/25
+   - 검색 결과를 누르면 detail 페이지로 가도록 설정
+     - 
 
 5. 이미지 업로드
 
@@ -163,6 +165,10 @@ DB 에 저장하기 위한 모델 class 생성
    - API 방식이 아닌 html에서 직접 가져오는 방식으로 불러오는게 더 빨랐음
 
 6. 디테일 페이지 만들기
+
+   - 검색기능에서
+   - 에러
+     - all of us 검색 시 에러 : person은 genre_id가 없어서 에러
 
 
 
