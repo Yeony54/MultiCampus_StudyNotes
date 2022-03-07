@@ -166,7 +166,15 @@ urls.py 수정, 디렉토리 추가, html 생성
 
 7. 좋아요 버튼 구현
 
+   - 좋아요 누르면 post_id를 data에 담아서 view에 전달
+   - post_id에 해당하는 객체를 가져와서 좋아요 1개 더하기
+
 8. 게시글 수정 구현
+
+   - 수정 누르면 post_id를 data에 담아서 view에 전달
+   - post_id에 해당하는 객체를 가져옴
+   - GET일 때: form을 instance=post로 만들어서 edit페이지로 return
+   - POST일 때 : request를 form에 불러와서 Model 객체에 삽입 detail 페이지로 return
 
 9. 로그인 기능 구현
 
@@ -214,7 +222,34 @@ urls.py 수정, 디렉토리 추가, html 생성
 
         test_id=(TestModel.id 형식)
 
-12. 자신의 글만 삭제
+    - 자신의 이름이 작성자명에 나오도록 수정
 
-    -  참고 : [https://wayhome25.github.io/](https://wayhome25.github.io/django/2017/03/01/django-99-my-first-project-3/) 
-      - 자신의 글에만 삭제버튼이 보이도록
+      - form 기초 상세 설명 : [https://wayhome25.github.io](https://wayhome25.github.io/django/2017/05/06/django-form/)
+
+        django form docs : https://docs.djangoproject.com/en/4.0/ref/forms/fields/
+
+        django에서 form 사용하기 1,2탄 : https://m.blog.naver.com/shsong97/220863526641
+
+      - 이건아마도 안되는것같다 form을 바꾸지 않는 이상 힘들어 ㅠㅠ 어케해
+
+    - detail에 들어가면 자기의 이름이 id로 나오는것 수정
+
+      - 계속 Member의 id로 나와서 화나서 그냥 변수로 주어줬다.
+
+      - 변수로 주어주려 `__all__` 을 `['b_title', 'b_content']` 로 고쳤더니 id가 입력되지 않았다.
+
+        `['id', 'b_title', 'b_content']` 이렇게 바꿔서 id 입력이 다시 가능하도록 했다.
+
+      - 글 작성자 처럼 댓글 개수와 좋아요 개수도 변수로 받아와서 출력해 주었다.
+
+        - 다 불러오기 좀 뭐하지만, forms의 field에 추가하면 공간이 생기기 때문에 그냥 변수로 받아오는것이 젤 간편한것 같다.
+        - 단점 : form 중간에 삽입하는게 어려울것같음
+
+12. 자신의 글만 삭제, 수정
+
+   - 참고 : [https://wayhome25.github.io/](https://wayhome25.github.io/django/2017/03/01/django-99-my-first-project-3/) 
+     - 자신의 글에만 삭제버튼이 보이도록
+
+14. 자신의 글은 좋아요 하지 못하도록 수정
+
+15. 댓글도 하기

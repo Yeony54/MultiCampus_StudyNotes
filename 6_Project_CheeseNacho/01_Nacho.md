@@ -135,9 +135,9 @@ DB 에 저장하기 위한 모델 class 생성
        - 파일 encoding 방식을 utf-8(BOM) 에서 utf-8로 바꿔서 하니 됐다.
      - with open 사용 : https://twpower.github.io/17-with-usage-in-python
      - 문제1 : poster path가 null 값인 것이 있다. 
-       - **model 다시 바꿔줘야함.**
+       - **model 다시 바꿔주거나, null일 때 기본경로 설정해줘야할듯**
 
-3.  회원가입
+3. 회원가입
 
    - 실습에서 했던것과 다른 방식으로 회원가입을 만들었음
    - 이미지 입력은 아직 잘 안됌
@@ -166,13 +166,132 @@ DB 에 저장하기 위한 모델 class 생성
 
 6. 디테일 페이지 만들기
 
-   - 검색기능에서
+   - 검색기능에서 항목 클릭 시 디테일 함수로 전송, id, media_type을 보냄
+   - API에 검색해서 항목을 detail 화면에 표시
    - 에러
-     - all of us 검색 시 에러 : person은 genre_id가 없어서 에러
+     - **all of us 검색 시 에러 : person은 genre_id가 없어서 에러**
+     - 다른 media type 처리 필요
 
+7. 좋아요 기능 구상
 
+   - 디테일 페이지에 테스트 버튼을 만들어서 시도
 
+     - 버튼을 누르면, view에서 Movie, Sereise객체와 user에 해당하는 Mlike, Slike를 찾는다.
+     - Mlike, Slike에 포함되지 않았으면 포함시키고, like_count+=1
+       Mlike, Slike에 포함되어 있으면 삭제하고, like_count-=1
 
+   - 지금 model은 둘다 Forienkey로 만들어져있다.
+
+     - 단점 : db에 저장된 movie만 좋아요 등록 가능
+     - 그래서 그냥 일반키(movie_id)로 등록하게 되면, 단점이 뭐가 있을까...
+       - 단점 : movie가 자기 like개수 모름 -> 그건 뭐 like_count로 가능
+     - 생각해보니까 like_count도 db에 저장된 객체만 할 수 있음
+       - db에 저장되지 않은 객체는 like_count를 하지 못함
+       - **detail로 들어갈 때, DB에 없으면 추가하는 기능을 해야할듯함**
+
+   - ForienKey로 저장하고 개수셀 때, count로 세면 될것같다. 
+
+     - F() 객체로 더하기를 할 수 있는 기능도 있다고 한다. 
+
+       <-이방식이 처리는빠를듯한데
+
+     - .filter().exists() / .filter().count() : https://velog.io/@fcfargo/Django-Repository
+
+   - code 수정
+
+     1. view의 detail 함수에서 detail.html로 넘어올때, like 변수 전송
+     
+     2. detail.html에 like관련 항목을 작성, 버튼 생성, 변수상태에 따라 style 변경
+     
+     3. jQuery 기본문법 와 좋아 : https://soft91.tistory.com/9
+     
+        jQuery로 태그 가져와서 확인할까하다가 고민중
+
+8. 좋아요 기능 구현
+
+  - is_authenticated 로 인증되었는지 확인
+  - results_id와 media_type을 통해 Like 기능 수행
+    - Like 리스트에 있으면 삭제, 없으면 추가
+  - 기능 수행 후, redirect로 다시 detail 페이지 표출
+    - redirect 참고 : https://velog.io/@ready2start/Django-redirect
+      - **form에 대한 내용도 있다.** form을 저장해서 redirect하면 저장한 form을 다시 redirect한 페이지에 표시한다는 내용같음
+    - redirect 참고 : [https://velog.io/@rosewwross](https://velog.io/@rosewwross/Django-render-%EC%99%80-redirect%EC%9D%98-%EC%B0%A8%EC%9D%B4)
+      - 이 블로그를 보다가 문득 생각이 들어서 redirect를 성공했다.
+  - 클릭하면 좋아요 되게 완료~
+  - 단점 : 다시 페이지로 redirect 해주는거라서 뒤로가기해보면 페이지가 두번 나오는것을 확인할 수 있음.... 이런건 어떻게 해? ㅠㅠ 새로고침은 못하나
+    - **결국 Ajax활용해야할듯 ㅠㅠ** : https://wayhome25.github.io/django/2017/06/25/django-ajax-like-button/
+
+9. 별점 기능 만들기
+
+   - 별점 등록
+   - 별점 통계
+
+10. 장르 선택 옵션 구현
+
+   - users에 장르선택 옵션 구현
+
+11. DB 업로드 수정
+
+    - series에서 path=Null일때 오류
+
+      - https://wayhome25.github.io/django/2017/09/23/django-blank-null/
+
+        CharField와 TextField에서 null=True라고 하면, 빈문자열과 null의 두가지의 경우가 존재하기 때문에 null=True라고 해선 안된다고 되어있다.
+
+        하지만 API의 경우 빈 문자열이 아닌 null로 다루고 있기 때문에 null=True로 해서 해본다. 
+
+      - 155082 : 얘가 말썽임
+        poster path도 없고, 첫방영일도 없음 다 null=True로 해서 진행하겠음
+
+      - 해결완료
+
+    - detail 불러올 때, DB에 있는지 확인하고 없으면 넣어주는거 추가
+
+12. 마이페이지
+
+    - bbs의 comment에서는 
+
+      <QuerySet [<Comment: 너무비싸요>, <Comment: 너무비싸요>, <Comment: 너무비싸요>]>
+
+      의 형식으로 context에 담겨졌다.
+      
+    - 다시하니까 성공했다
+
+13. url 정리
+
+    - 장르 import
+      - https://api.themoviedb.org/3/genre/movie/list?api_key=(api_key)
+      - https://api.themoviedb.org/3/genre/tv/list?api_key=(api_key)
+    - movie import
+      - https://api.themoviedb.org/3/movie/(movie_id)?api_key=(api_key)
+    - series import
+      - https://api.themoviedb.org/3/tv/(series_id)?api_key=(api_key)
+    - detail
+      - https://api.themoviedb.org/3/movie/(movie_id)?api_key=(api_key)
+      - https://api.themoviedb.org/3/tv/(series_id)?api_key=(api_key)
+    - search
+      - https://api.themoviedb.org/3/search/multi?language=ko&page=1&include_adult=false?api_key=(api_key)&query=quote(search_word)
+    - 비슷한 코드를 묶으려고함
+      - 위의 4개를 같은코드로 묶고, search 까지 2개의 코드로 만들까,,,
+      - 코드 묶음 완료
+
+14. 수정할것 
+
+    1. entmt_info/models.py : m_likeCount 필요없음
+    2. default 이미지 나오게 수정 : 수정함
+       - upload_to 때문에 앞에 media/가 붙어서 그랬던것같음,,, : 내일확인
+       - 완료
+
+15. 템플릿 필요한 소스
+
+    - 메인페이지, 검색결과페이지, 디테일페이지
+    - 로그인, 회원가입, 마이페이지, 장르선택페이지, 비밀번호변경, 업데이트
+
+16. 로딩페이지
+
+    -  [로딩페이지 영상](https://www.google.com/search?q=How+to+add+loading+page&sa=X&ved=2ahUKEwiOyN3J3rP2AhXFrlYBHTJSBeMQ1QJ6BAgxEAE&biw=1080&bih=828&dpr=1#kpvalbx=_mNclYrqnEJvf2roP-KOjoA421)
+    - 로딩페이지 하려면 뭐 웹사이트에 넣어놓고 그거 쓴다는것같은데
+    - 안해~~~~
 
 
 
