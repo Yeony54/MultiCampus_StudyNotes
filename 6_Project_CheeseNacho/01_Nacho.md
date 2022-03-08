@@ -291,7 +291,32 @@ DB 에 저장하기 위한 모델 class 생성
 
     -  [로딩페이지 영상](https://www.google.com/search?q=How+to+add+loading+page&sa=X&ved=2ahUKEwiOyN3J3rP2AhXFrlYBHTJSBeMQ1QJ6BAgxEAE&biw=1080&bih=828&dpr=1#kpvalbx=_mNclYrqnEJvf2roP-KOjoA421)
     - 로딩페이지 하려면 뭐 웹사이트에 넣어놓고 그거 쓴다는것같은데
-    - 안해~~~~
+    - loading.io
+
+17. 댓글 나머지 구현
+
+    - 한사람당 댓글한개 구현
+    - 밑에는 다른사람들의 댓글들 나오도록 구현
+    - 별점이 점수가 아닌 별로 보이도록 구현
+    - 수정, 삭제 구현
+
+
+
+---
+
+
+
+Template 적용
+
+1. base.html 만들기
+2. 회원가입, 로그인 팝업으로 가능하게 만들기
+3. 검색 -> result.html
+4. detail.html
+5. mypage
+
+
+
+
 
 
 
