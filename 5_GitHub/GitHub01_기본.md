@@ -454,7 +454,7 @@ $ ls
 
 
 
-#### Rebase
+#### Rebase : 최신 소스로
 
 오픈소스 Github 최신 소스수정내역(commit)으로 Base 업데이트
 
@@ -501,11 +501,19 @@ $ git rebase --abort
 
 
 
-#### Rewind
+#### Rebase : 과거 Rewind, 커밋내용 수정
 
 수정내역(commit) 과거시점으로 되감기(rewind)
 
 rebase 기능을 사용해서 한다.
+
+[rebase edit 예시 reference](https://github.com/appkr/blog/blob/master/_posts/2016-04-25-git-rebase.md)
+
+[git rebase 옵션, 예시 reference](https://wormwlrm.github.io/2020/09/03/Git-rebase-with-interactive-option.html)
+
+*협업하는 과정에서 리포지터리에 푸시된 커밋 히스토리를 로컬에서 리베이스하여 다시 푸시하는 일은 지양해야합니다. 왜냐하면 리베이스는 기존의 커밋을 재사용하는 것이 아니라, 내용이 같은 커밋을 새로 만들기 때문입니다.*
+
+*이 때문에 다른 동료의 히스토리를 망칠 수 있고, 특히 `--force`옵션으로 푸시해버린다면 다른 동료의 작업본을 날릴 수 있으니 주의해야합니다.*
 
 ```bash
 # 수정하고 싶은 부분의 pick을 edit으로 수정 후 편집기 저장, 나가기
@@ -514,7 +522,7 @@ $ git rebase -i --root
 # 되감은 시점에서 log 확인
 $ git log --oneline
 
-# 되감은 내용 풀기 (continue)
+# rebase 과정 종료 : 되감은 내용 풀기 (continue)
 $ git rebase --continue
 ```
 
@@ -523,6 +531,66 @@ $ git rebase --continue
 log에 쌓여있는것들 중 중간에 있는 commit을 바꾸고 싶을 때 사용한다.
 
 base를 건드리려고 rewind를 하지 않는다.
+
+
+
+- `-i` 또는 `-interactive` : 대화형으로 실행
+
+- `--root` : 최초 커밋부터 리베이스
+
+- `git rebase -i --root` 으로 대화창 실행 후, 수정하고 싶은 커밋앞의 `pick`을 `edit`혹은 `e`로 바꾸어 저장하면 된다.
+
+  편집하지 않고 종료할 경우 아무런 변경사항 없이 리베이스가 종료된다.
+
+  - `pick`또는 `p` : 해당커밋을 수정하지 않고 그냥 사용하겠다는 명령어
+
+  - `reword`또는 `r` : 커밋 메세지를 수정하기 위한 명령어
+
+  - `edit` 또는 `e` : 커밋 명령어 뿐만 아니라 작업 내용도 수정할 수 있게 하는 명령어
+
+  - `squash`또는 `s`, `fixup`또는 `f` : 해당 커밋을 이전 커밋과 합치는 명령어
+
+    `squash`는 각 커밋들의 메세지가 합쳐지고, `fixup`은 이전의 커밋 메세지만 남긴다.
+
+  - `exec` 또는 `x` : 리베이스 도중에 실행할 쉘 커맨드를 입력할 수 있게 해주는 명령어
+
+  - `break` 또는 `b` : 해당 라인에서 리베이스를 일시중지하는 명령어
+
+    continue로 다시 재개할 수 있다 (잘안쓰임)
+
+  - `drop` 또는 `d` : 해당 커밋을 명시적으로 삭제
+
+  - `merge` 또는 `m` : 머지 커밋을 만들면서 머지하는 명령어
+
+
+
+**Git Rebase 취소 : 과거로 rewind**
+
+git reset --hard는 commit을 취소하고 파일을 풀어버리는 역할...?
+
+- **git reflog [브랜치명]**
+
+  잘못 리베이스한 로컬 컴퓨터에서 실행, 리베이스 로그를 보여줌
+
+  그냥 로그를 보는거여서 막쳐봐도 된다.
+
+- **git checkout testBranch**
+
+  commit, push는 잘 생각하고 해야한다. 
+
+  branch를 생성해서 테스트
+
+- **git reset --hard [hash]**
+
+  reflog를 보고, 돌아가고싶은 커밋명(hash)를 기입
+
+  이전커밋이력을 모두 reset 한다.
+
+- **git push -f origin [브랜치명]**
+
+  리셋한 커밋이력을 리모트로 강제 푸시
+
+  -f 명령은 강제푸시
 
 
 
@@ -618,6 +686,10 @@ done
 ```
 
 
+
+
+
+---
 
 
 
