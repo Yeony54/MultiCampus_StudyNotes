@@ -316,7 +316,38 @@ Template 적용
 
 
 
+왓더헬 css 하기
 
+1. checkbox 꾸미기
+   - https://www.codingfactory.net/10710
+
+
+
+ORM
+
+1. orm 다루기 상세설명 : http://recordingbetter.com/django/2017/06/07/Django-ORM
+
+2. Mgenre 받아와서 많은 순서대로 정렬
+
+   - 이중 list 정렬 https://haesoo9410.tistory.com/193
+
+     ```python
+     list.sort(key=lambda x:x[1])
+     ```
+
+     
+
+Form
+
+1. form안에 button 태그가 있을 때, button이라고 지정해주지 않으면 submit을 하게된다.
+
+2. Form으로 받은 데이터를 받기 위해서는 아래와 같은 형식으로 사용
+
+   ```python
+   form.cleaned_data['mc_star']
+   ```
+
+3. 
 
 
 

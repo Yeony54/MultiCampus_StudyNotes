@@ -624,6 +624,21 @@ $ git reset --hard HEAD~1
 
 
 
+```bash
+#강제로 clean
+git clean -f 
+# 이거도 하라는대로
+git restore
+```
+
+
+
+
+
+---
+
+
+
 #### Tag
 
 특정 커밋 버전을 마킹한다.
