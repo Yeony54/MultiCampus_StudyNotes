@@ -708,6 +708,20 @@ done
 
 
 
+**Unstashed 파일 정리하기**
+
+reset
+
+clear
+
+restore .
+
+
+
+---
+
+
+
 **참고**
 
 Git, GitHub : [hyefa.log](https://velog.io/@gpwls320/Git-%EC%9A%A9%EC%96%B4-%EB%AA%85%EB%A0%B9%EC%96%B4)

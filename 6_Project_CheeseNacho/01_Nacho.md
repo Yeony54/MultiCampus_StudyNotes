@@ -347,7 +347,17 @@ Form
    form.cleaned_data['mc_star']
    ```
 
-3. 
+
+
+Bootstrap 
+
+1. 옵션 등 정의 페이지
+
+   https://getbootstrap.com/docs/4.0/layout/grid/
+
+
+
+
 
 
 
