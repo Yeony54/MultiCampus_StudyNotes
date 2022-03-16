@@ -236,23 +236,25 @@ Error Search
 
 Image Test
 
+1. 자동저장 + PicGo 설정
+
 ![image-20220316155613451](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155613451.png)
 
 이미지 복사, 붙여넣기 후 이미지업로드를 하게 되면 `https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155248182.png` 처럼 생긴 링크가 생성되게 된다. 
 
-git add, commit 후 push를 하려하면 pull을 하라는 메세지가 뜬다
+git add, commit 후 push를 하려하면 pull을 하라는 메세지가 뜬다.
 
-이렇게 github으로 업로드를 하게 되면 img/ 폴더에 저장되게 된다.
+그래서 pull해주고 push를 완료하고 git 페이지를 보면 upload는 되었지만, img는 뜨지 않는다.
 
 **그런데도 자꾸 오류가 떴다.**
 
-그런데 생각해보니 어차피 img/ 폴더에 저장이 될거면 upload가 필요할까라는 생각이 들었다....
+그런데 생각해보니 어차피 git에서 img/ 폴더에 저장이 될거면 upload가 필요할까라는 생각이 들었다....
 
+그리고 git에서 업로드한것과 내가 local에저장된것이 push되면서 엇갈리는것이 아닐까라는 생각이 들었다.
 
+2. 자동저장 x + PicGo 설정
 
-자동저장 x + PicGo 설정
-
-
+![image-20220316155956299](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155956299.png)
 
 
 
