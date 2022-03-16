@@ -236,11 +236,11 @@ Error Search
 
 Image Test
 
+![image-20220316155613451](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155613451.png)
 
+이미지 복사, 붙여넣기 후 이미지업로드를 하게 되면 `https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155248182.png` 처럼 생긴 링크가 생성되게 된다. 
 
-이미지업로드를 하게 되면 `https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155248182.png` 라는 링크로 생성되게 된다. 
-
-git commit 후 push
+git add, commit 후 push를 하려하면 pull을 하라는 메세지가 뜬다
 
 이렇게 github으로 업로드를 하게 되면 img/ 폴더에 저장되게 된다.
 
