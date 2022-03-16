@@ -190,6 +190,29 @@ ___
 
 [TEAUK-WIKI : Typora 신기능 - 이미지 자동 업로드](https://taeuk-gang.github.io/wiki/Typora%20%EC%8B%A0%EA%B8%B0%EB%8A%A5%20-%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%9E%90%EB%8F%99%20%EC%97%85%EB%A1%9C%EB%93%9C/)
 
+```json
+{
+    "picBed": {
+      "current": "github",
+      "github": {
+        "repo": "Yeony54/MultiCampus_StudyNotes",
+        "token": "{Token Key}",
+        "path": "/img",
+        "customUrl": "https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img",
+        "branch": "main"
+      }
+    },
+    "settings": {
+      "showUpdateTip": true,
+      "autoStart": true,
+      "uploadNotification": true,
+      "miniWindowOntop": true
+    },
+    "needReload": false,
+    "picgoPlugins": {}
+  }
+```
+
 Image Upload Error
 
 ```
@@ -213,13 +236,13 @@ Error Search
 
 Image Test
 
-![image-20220316150007278](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/image-20220316150007278.png)
+![image-20220316153407869](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316153407869.png)
 
-왜 안돼지
 
-![image-20220316150435713](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316150435713.png)
 
-![image-20220316151554206](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/image-20220316151554206.png)
+
+
+
 
 ---
 
