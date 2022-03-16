@@ -186,9 +186,9 @@ ___
 
 
 
-#### 11. Typora 사진 git 연동
+### 11. Typora 사진 git 연동
 
-[TEAUK-WIKI : Typora 신기능 - 이미지 자동 업로드](https://taeuk-gang.github.io/wiki/Typora%20%EC%8B%A0%EA%B8%B0%EB%8A%A5%20-%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%9E%90%EB%8F%99%20%EC%97%85%EB%A1%9C%EB%93%9C/)
+~~[TEAUK-WIKI : Typora 신기능 - 이미지 자동 업로드](https://taeuk-gang.github.io/wiki/Typora%20%EC%8B%A0%EA%B8%B0%EB%8A%A5%20-%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%9E%90%EB%8F%99%20%EC%97%85%EB%A1%9C%EB%93%9C/)~~ : 잘못된 경로설정 정보... 😂 고생했다 나자신
 
 PicGo json 파일 설정
 
@@ -200,7 +200,7 @@ PicGo json 파일 설정
         "repo": "{GitID}/{Repository명}",
         "token": "{Token Key}",
         "path": "/{저장하고 싶은 경로}",
-        "customUrl": "https://raw.githubusercontent.com/{GitID}/{Repository명}/{저장경로}",
+        "customUrl": "https://raw.githubusercontent.com/{GitID}/{Repository명}/{branch명}",
         "branch": "{branch}"
       }
     },
@@ -214,6 +214,16 @@ PicGo json 파일 설정
     "picgoPlugins": {}
   }
 ```
+
+Git Token 👉 https://github.com/settings/tokens
+
+Generate new token > repo, workflow, gist 선택하고 만들기 선택
+
+생성된 token은 다시 열람할 수 없으니 복사해서 가지고 있던지, 아님 새로생성하면 된다.
+
+---
+
+**-고생했던 Error-**
 
 Image Upload Error
 
@@ -234,9 +244,7 @@ Error Search
 - 결론 : Token Key가 expired되어 사용할 수 없는 상태였다.
   새로운 키를 만들어 하니까 Test Upload를 Error없이 수행할 수 있었다.
 
-
-
-Image Test
+**-Image Test-**
 
 1. 자동저장o + PicGo 설정o
 
@@ -277,15 +285,21 @@ Image Test
 
    ![image-20220316162538155](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/main/img/image-20220316162538155.png)
 
+   `https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/main/img/image-20220316162538155.png`으로 경로가 설정되니 잘 업로드 되어서 저장 되었다. 화난다. 👿
+
+   어쨋든 5번의 이유가 아니면 쓸 이유가 없어서 일단은 그냥 3번방식으로 쓸 것 같다.
+
+   매번 업로드 하는것도 귀찮으니까 말이다. 😉
+
 5. 내가 생각하는 PicGo를 사용하는 이유
 
    PicGo를 사용하면 Git을 통해 자동으로 업로드가 될 수 있도록한다. 
 
    어차피 Git에 올라가고, pull을 해서 받아야 하면 왜 Git에 올리는 건가 생각을 했는데, 
 
-   만약 업로드하는 Git repository가 현재 내 문서가 있는 repository가 아닌 다른 repository이고, 여기서 사진을 가져올 수 있다면 아주 편리한 기능일 것 같다.
+   **만약 업로드하는 Git repository가 현재 내 문서가 있는 repository가 아닌 다른 repository이고, 여기서 사진을 가져올 수 있다면 아주 편리한 기능일 것 같다.**
 
-   게다가, 위에서 설정했던 json 코드를 보면 branch설정 칸이 있는데, 여기에 main이 아닌 다른 branch으로 설정하게 되면 내 main에 보이지 않게 관리할 수도 있을것 같다.
+   **게다가, 위에서 설정했던 json 코드를 보면 branch설정 칸이 있는데, 여기에 main이 아닌 다른 branch으로 설정하게 되면 내 main에 보이지 않게 관리할 수도 있을것 같다.**
 
    하지만 나는 감자기 때문에 그냥 main에 저장해서 쉽게쉽게 할것이다 😀
 
