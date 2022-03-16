@@ -236,7 +236,7 @@ Error Search
 
 Image Test
 
-![image-20220316153407869](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316153407869.png)
+![image-20220316153407869](/img/image-20220316153407869.png)
 
 
 
