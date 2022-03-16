@@ -237,6 +237,7 @@ Error Search
 Image Test
 
 ![image-20220316153407869](/img/image-20220316153407869.png)
+<<<<<<< HEAD
 
 
 
@@ -251,6 +252,8 @@ Image Test
 그런데 생각해보니 어차피 img/ 폴더에 저장이 될거면 upload가 필요할까라는 생각이 들었다....
 
 자동저장x + PicGo 설정
+=======
+>>>>>>> 85f5b8827f03685d714b8d2c991ab39b3a725ade
 
 
 
