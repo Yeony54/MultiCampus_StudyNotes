@@ -12,7 +12,11 @@ Machine learning
 > conda install pandas
 ```
 
+<br>
+
 ---
+
+<br>
 
 ### 01.Pandas
 
@@ -28,7 +32,11 @@ import pandas as pd
 
 pandas도 numpy처럼 관용적으로 쓰는 alias가 있다.
 
+<br>
+
 ---
+
+<br>
 
 ### 02. Series
 
@@ -36,7 +44,7 @@ pandas도 numpy처럼 관용적으로 쓰는 alias가 있다.
 
 Series의 특징으로 index를 변경할 수 있다는 점이 있다.
 
-만약 index를 지정해서 Series를 만들면 숫자 index는 내부에 숨어있는채로 남게 된다!
+만약 index를 지정해서 Series를 만들면 숫자 index는 내부에 숨어있는채로 남게 된다!<br>
 
 ```python
 # ndarray
@@ -52,7 +60,7 @@ print(s.index)   # RangeIndex(start=0, stop=5, step=1) => pandas의 객체
 
 **.values** 속성으로 series의 값을 출력할 수 있다.
 
-**.index** 속성으로 출력하면 pandas의 객체로 Index가 만들어진 것을 확인할 수 있다.
+**.index** 속성으로 출력하면 pandas의 객체로 Index가 만들어진 것을 확인할 수 있다.<br><br>
 
 #### B. Series 생성 : index 속성
 
@@ -69,7 +77,7 @@ print(s['c']) 		# 지정 index
 
 Series의 index를 문자와 문자열로 지정해서 만들었다. 
 
-숫자는 내부적으로 남아있기 때문에 숫자 index로도 접근이 가능하다.
+숫자는 내부적으로 남아있기 때문에 숫자 index로도 접근이 가능하다.<br>
 
 ❓ 만약 index를 숫자로 지정해주면 어떻게 될까
 
@@ -86,7 +94,7 @@ print(s[100])		# 3.0
 
 이번에는 Series의 index를 숫자로 만들어주었다.
 
-👀 index를 숫자로 지정해주게 되면 원래 있던 숫자 index가 사라져서 오류가 난다.
+👀 index를 숫자로 지정해주게 되면 원래 있던 숫자 index가 사라져서 오류가 난다.<br>
 
 ❓ 같은 index가 존재하면 어떻게 될까?
 
@@ -105,13 +113,13 @@ Series의 index에 중복되는 값을 지정해주었다.
 
 하지만 여러개의 값에 접근하기 때문에 Series로 출력된다.
 
-일반적으로 index는 unique한 값을 사용하는것이 원칙이니 같은 index가 없도록 주의하자.
+일반적으로 index는 unique한 값을 사용하는것이 원칙이니 같은 index가 없도록 주의하자.<br><br>
 
 #### C. slicing
 
 indexing은 ndarray나 list와 비슷하게 사용한다.
 
-하지만 slicing을 사용할 때에는 주의해야 한다.
+하지만 slicing을 사용할 때에는 주의해야 한다.<br>
 
 ```python
 s = pd.Series([1, 2, 3, 4, 5],
@@ -127,7 +135,7 @@ Seires의 0번째부터 3번째 까지를 출력하고 싶다.
 
 숫자 index를 사용할 때에는 이전에 slicing을 했을 때 처럼 사용이 가능하다.
 
-하지만 지정 index를 사용할 때에는 그 index까지 포함해서 나오기 때문에 주의해야 한다.
+하지만 지정 index를 사용할 때에는 그 index까지 포함해서 나오기 때문에 주의해야 한다.<br>
 
 ```python
 # 짝수만 뽑아내는 Boolean indexing
@@ -137,7 +145,7 @@ print(s[s % 2 == 0])
 print(s[[0, 2]])
 ```
 
-ndarray로 구성되어 있기 때문에 Boolean indexing, Fancy indexing이 모두 가능하다.
+ndarray로 구성되어 있기 때문에 Boolean indexing, Fancy indexing이 모두 가능하다.<br>
 
 ```python
 # Series를  만드는 또 다른 방법
@@ -150,6 +158,8 @@ my_dict = {'서울': 1000,
 s = pd.Series(my_dict)
 print(s)
 ```
+
+<br>
 
 #### D. Series 예제
 
@@ -184,7 +194,7 @@ s1 = pd.Series(my_list,
 정규분포에서 10개의 랜덤한 값을 추출하여 list를 만들어준다.
 
 **Series**의 속성으로 위에서 만든 list를 주고, index로 start_day comprehension을 부여해 준다.
-여기서 **timedelta**는 datetime 변수에 1일씩 증가시켜주는 module이다.
+여기서 **timedelta**는 datetime 변수에 1일씩 증가시켜주는 module이다.<br>
 
 📄 **예제 2**
 
@@ -217,9 +227,11 @@ Series는 index를 기반으로 연산이 수행되기 때문에 자동으로 �
 
 이때, 1월 1일부터 1월 4일까지의 합은 NaN으로 출력이 되는데, 이는 B공장이 그 날짜에 대한 생산량을 가지고 있지 않기 때문이다.
 
-이처럼 두개가 동시에 데이터를 갖고있지 않은 데이터는 NaN으로 연산이 불가능하다고 출력된다.
+이처럼 두개가 동시에 데이터를 갖고있지 않은 데이터는 NaN으로 연산이 불가능하다고 출력된다.<br><br>
 
 ---
+
+<br>
 
 ### 03. Dataframe 기본
 
@@ -227,7 +239,7 @@ Dataframe은 Series의 집합이라고 볼 수 있다.
 
 Series의 특징은 같은 data type만 저장이 가능하다는 것이다.
 
-그래서 하나의 열 즉 Series의 데이터는 같은 data type만 저장이 가능하며, 다양한 Series들이 모여 DataFrame을 만들 수 있다.
+그래서 하나의 열 즉 Series의 데이터는 같은 data type만 저장이 가능하며, 다양한 Series들이 모여 DataFrame을 만들 수 있다.<br>
 
 ```python
 import numpy as np
@@ -260,7 +272,7 @@ print(df.columns) # 열 index, Index(['이름', '학년', '학점'], dtype='obje
 
 **index** : 행 index를 출력해 준다.
 
-**columns** : 열 index를 출력해준다.
+**columns** : 열 index를 출력해준다.<br>
 
 ```python
 df.index.name = '학번'
@@ -268,7 +280,7 @@ df.columns.name = '학생정보'
 display(df)
 ```
 
-index와 columns의 name 속성에 접근하여 name을 설정해 줄 수 있다.
+index와 columns의 name 속성에 접근하여 name을 설정해 줄 수 있다.<br>
 
 ```python
 # DataFrame의 column명과 index명을 변경
@@ -285,7 +297,7 @@ display(new_df)
 여기서 **inplace** 는 원본에 저장할지 안할지를 작성하는 속성이다.
 
 inplace = True 이면 원본에 저장하고 복사본을 만들지 않는다.
-inplace = False 이면 원본에 저장하지 않고, 복사본으로 만든다.
+inplace = False 이면 원본에 저장하지 않고, 복사본으로 만든다.<br>
 
 ```python
 # DataFrame의 특정 column을 index로 설정
@@ -302,7 +314,7 @@ new_df = df.set_index('이름',
 display(new_df)
 ```
 
-set_index를 사용하면 특정 column을 사용해서 index로 만들 수 있다.
+set_index를 사용하면 특정 column을 사용해서 index로 만들 수 있다.<br><br>
 
 
 
