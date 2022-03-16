@@ -190,16 +190,18 @@ ___
 
 [TEAUK-WIKI : Typora 신기능 - 이미지 자동 업로드](https://taeuk-gang.github.io/wiki/Typora%20%EC%8B%A0%EA%B8%B0%EB%8A%A5%20-%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%9E%90%EB%8F%99%20%EC%97%85%EB%A1%9C%EB%93%9C/)
 
+PicGo json 파일 설정
+
 ```json
 {
     "picBed": {
       "current": "github",
       "github": {
-        "repo": "Yeony54/MultiCampus_StudyNotes",
+        "repo": "{GitID}/{Repository명}",
         "token": "{Token Key}",
-        "path": "/img",
-        "customUrl": "https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img",
-        "branch": "main"
+        "path": "/{저장하고 싶은 경로}",
+        "customUrl": "https://raw.githubusercontent.com/{GitID}/{Repository명}/{저장경로}",
+        "branch": "{branch}"
       }
     },
     "settings": {
@@ -230,7 +232,7 @@ Error Search
 [sukkvon - personanl access key 설정](https://sukvvon.tistory.com/71)
 
 - 결론 : Token Key가 expired되어 사용할 수 없는 상태였다.
-  새로운 키를 만들어 하니까 Test Upload를 Error없이 수행
+  새로운 키를 만들어 하니까 Test Upload를 Error없이 수행할 수 있었다.
 
 
 
@@ -238,33 +240,54 @@ Image Test
 
 1. 자동저장o + PicGo 설정o
 
-![image-20220316155613451](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155613451.png)
+   ![image-20220316155613451](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155613451.png)
 
-이미지 복사, 붙여넣기 후 이미지업로드를 하게 되면 `https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155248182.png` 처럼 생긴 링크가 생성되게 된다. 
+   이미지 복사, 붙여넣기 후 이미지업로드를 하게 되면 `https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155248182.png` 처럼 생긴 링크가 생성되게 된다. 
 
-git add, commit 후 push를 하려하면 pull을 하라는 메세지가 뜬다.
+   git add, commit 후 push를 하려하면 pull을 하라는 메세지가 뜬다.
 
-그래서 pull해주고 push를 완료하고 git 페이지를 보면 upload는 되었지만, img는 뜨지 않는다.
+   그래서 pull해주고 push를 완료하고 git 페이지를 보면 upload는 되었지만, img는 뜨지 않는다.
 
-**그런데도 자꾸 오류가 떴다.**
-
-그런데 생각해보니 어차피 git에서 img/ 폴더에 저장이 될거면 upload가 필요할까라는 생각이 들었다....
-
-그리고 git에서 업로드한것과 내가 local에저장된것이 push되면서 엇갈리는것이 아닐까라는 생각이 들었다.
+   - 그런데 생각해보니 어차피 git에서 img/ 폴더에 저장이 될거면 upload가 필요할까라는 생각이 들었다....
+   - 그리고 git에서 업로드한것과 내가 local에저장된것이 push되면서 엇갈리는것이 아닐까라는 생각이 들었다.
+   - githubuser 링크를 보면 내가 설정한 링크와 다르게 /img가 두번 들어가 있는데 이거 때문에 오류가 생겼던 것일까 생각도 잠~ 깐 들었지만, path에 맞게 잘 저장 되는것을 보아 그건 또 아닌것같기도하고,,,,
+     - 다른 블로그에서는 마지막이 경로가아니고 branch명이라고 되어있는곳도 있었다.
 
 2. 자동저장 x + PicGo 설정
 
-![image-20220316155956299](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155956299.png)
+   ![image-20220316155956299](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155956299.png)
 
-역시 pull 메세지가 떠서 pull을 하고 push를 완료해 주었다.
+   역시 pull 메세지가 떠서 pull을 하고 push를 완료해 주었다.
 
-**이미지는 여전히 뜨지 않는다.**
+   **이미지는 여전히 뜨지 않는다.**
 
 3. 자동저장o + PicGo설정 x
 
-![image-20220316160626489](img/image-20220316160626489.png)
+   ![image-20220316160626489](img/image-20220316160626489.png)
 
+   이렇게 하니까 그냥 된다. 왜 PicGo를 쓰는지 모르겠다.
 
+   PicGo 없이 자동저장되도록 경로를 설정하고, 경로가 설정된 곳의 링크에서 사진을 가져온다.
+
+   **해결**
+
+4. 위에서 생각했던 안되는 이유중에 경로 설정을 다시 해주는것 test
+
+   Test img는 잘 올라간다.
+
+   ![image-20220316162538155](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/main/img/image-20220316162538155.png)
+
+5. 내가 생각하는 PicGo를 사용하는 이유
+
+   PicGo를 사용하면 Git을 통해 자동으로 업로드가 될 수 있도록한다. 
+
+   어차피 Git에 올라가고, pull을 해서 받아야 하면 왜 Git에 올리는 건가 생각을 했는데, 
+
+   만약 업로드하는 Git repository가 현재 내 문서가 있는 repository가 아닌 다른 repository이고, 여기서 사진을 가져올 수 있다면 아주 편리한 기능일 것 같다.
+
+   게다가, 위에서 설정했던 json 코드를 보면 branch설정 칸이 있는데, 여기에 main이 아닌 다른 branch으로 설정하게 되면 내 main에 보이지 않게 관리할 수도 있을것 같다.
+
+   하지만 나는 감자기 때문에 그냥 main에 저장해서 쉽게쉽게 할것이다 😀
 
 
 
