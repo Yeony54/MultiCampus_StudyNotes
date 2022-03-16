@@ -236,14 +236,11 @@ Error Search
 
 Image Test
 
-![image-20220316153407869](/img/image-20220316153407869.png)
-<<<<<<< HEAD
+![image-20220316155248182](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155248182.png)
 
+이미지업로드를 하게 되면 `https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155248182.png` 라는 링크로 생성되게 된다. 
 
-
-자동저장 + PicGo 설정
-
-이미지업로드를 하게 되면 `https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316154255617.png` 라는 링크로 생성되게 된다. 
+git commit 후 push
 
 이렇게 github으로 업로드를 하게 되면 img/ 폴더에 저장되게 된다.
 
@@ -251,9 +248,9 @@ Image Test
 
 그런데 생각해보니 어차피 img/ 폴더에 저장이 될거면 upload가 필요할까라는 생각이 들었다....
 
-자동저장x + PicGo 설정
-=======
->>>>>>> 85f5b8827f03685d714b8d2c991ab39b3a725ade
+
+
+자동저장 x + PicGo 설정
 
 
 
