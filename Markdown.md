@@ -1,8 +1,8 @@
 Markdown
 
-## Markdown 문법 및 사용법
+## Markdown 기본
 
-### 1. 제목(Header)
+#### 1. 제목(Header)
 
 ```
 # This is h1
@@ -13,7 +13,7 @@ Markdown
 ###### This is h6
 ```
 
-### 2. 강조(Emphasis)
+#### 2. 강조(Emphasis)
 
 ```
 기울여 쓰기는 *별표* 또는 _언더바_를 사용
@@ -31,7 +31,7 @@ Markdown
 취소줄은 ~~물결 2개~~를 사용
 밑줄 긋기는 <> 안에 'u'를 넣어 사용
 
-### 3. 목록(List)
+#### 3. 목록(List)
 
 ```
 1. 순서만 쓰기
@@ -56,7 +56,7 @@ Markdown
 	- 순서 x
 		* 순서 x
 
-### 4. 링크(Links)
+#### 4. 링크(Links)
 
 ```
 그냥 넣기 https://www.google.com/
@@ -76,13 +76,15 @@ Markdown
 [링크 첨부]: https://www.google.com/ "여기도 설명 가능"
 ```
 
-### 5. 이미지
+#### 5. 이미지
 
 ```
 기본문법:![사진이름](사진경로)
 ```
 
-### 6. 코드
+
+
+#### 6. 코드
 
 ````
 ```
@@ -100,7 +102,7 @@ printf(%s,"Hello, World!");
 
 
 
-### 7. 표
+#### 7. 표
 
 ##### 표 정렬
 
@@ -115,14 +117,14 @@ printf(%s,"Hello, World!");
 | 내용11   |   내용12   |     내용13 |
 
 ```
-| <center>Header1<center> | <center>Header2<center> | <center>Header3<center> |
+| <center>Header1</center> | <center>Header2</center> | <center>Header3</center> |
 |:------|:------:|-------:|
 | **cell 1x1** | <center>cell 1X2 </center> | *cell 1x3* |
 | **cell 2x1** | <center>cell 2X2 </center> | *cell 2x3* |
 | **cell 3x1** | <center>cell 3X2 </center> | *cell 3x3* |
 ```
 
-| <center>Header1<center> |  <center>Header2<center>   | <center>Header3<center> |
+| <center>Header1</center> |  <center>Header2</center>   | <center>Header3</center> |
 | :---------------------- | :------------------------: | ----------------------: |
 | **cell 1x1**            | <center>cell 1X2 </center> |              *cell 1x3* |
 | **cell 2x1**            | <center>cell 2X2 </center> |              *cell 2x3* |
@@ -130,7 +132,7 @@ printf(%s,"Hello, World!");
 
 
 
-### 8. 인용문(BlockQuote)
+#### 8. 인용문(BlockQuote)
 
 ```
 중첩 인용 사용.
@@ -156,7 +158,7 @@ printf(%s,"Hello, World!");
 
 
 
-### 9. 수평선(Horizontal Rule)
+#### 9. 수평선(Horizontal Rule)
 
 ```
 ---
@@ -171,7 +173,7 @@ ___
 
 
 
-### 10. 참고블록
+#### 10. 참고블록
 
 ```
 [!NOTE]
@@ -184,9 +186,101 @@ ___
 [!PREREQUISITES]
 ```
 
+<br><br><br>
+
+## MarkDown 고급
+
+#### 1. 줄바꿈
+
+엔터를 치면 줄바꿈이 마음대로 되지 않는것을 알 수 있다.
+
+이때 엔터 후 각 줄의 마지막에 빈칸을 두개 써 준다면 강제로 줄바꿈을 할 수 있다.
+
+  
+
+#### 2. 이미지 활용
+
+이미지와 링크를 더해서 이렇게 사용할 수 있다.
+
+```
+[![the google logo][logo]][google]
+
+[logo]: http://www.google.com/images/logo.gif
+[google]: http://www.google.com/ "click to visit Google.com"
+```
+
+  
+
+#### 3. HTML과 함께 쓰기
+
+```
+* <small>작은 문자들</small>
+* <big>큰 문자들</big>
+```
+
+* <small>작은 문자들</small>
+* <big>큰 문자들</big>
+
+  
+
+#### 4. HTML의 표시 혹은 형식화된 문서
+
+뭔말인지 모르겠땅 ㅎㅎ;
+
+  
+
+#### 5. 특수문자 표현하기
+
+표시될 문자 앞에 백슬래쉬(\\)를 넣어주면 특수문자를 표현할 수 있다.
 
 
-### 11. Typora 사진 git 연동
+
+#### 6. 글 가운데 정렬
+
+- html 태그인 `<center> </center>` 사용
+- 처음부터 끝까지 한 태그로 사용해도 되지만, 그렇게 하면 중간에 바꿀 수 없다.
+
+  
+
+#### 7. 위 아래 첨자 글자 넣기
+
+- 위첨자
+  - html 태그 `<sup> </sup>` 사용
+  - html 태그 <sup>윗첨자</sup>
+- 아래첨자
+  - html 태그 `<sub> </sub>` 사용
+  - html 태그 <sub>아랫첨자</sub>
+
+  
+
+#### 8. 엔터, 띄어쓰기 많이 사용하기
+
+- 줄바꿈, 엔터
+  - html 태그 `<br>` 사용
+- 띄어쓰기
+  - html 태그 `&nbsp;`
+  - 공백특수문자 `ㄱ -> 한자키 -> 1` 사용
+
+<br>
+
+#### 9. 예쁜 큰따옴표 표시
+
+- html 태그 `<q> </q>`사용
+
+  > <q>이거도 html 태그인지는 모르겠지만</q>
+
+<br>
+
+#### 10. Copyright 심볼
+
+- `&copy;` 사용
+- &copy;csora
+
+<br><br><br>
+
+## 기타
+
+#### 6. Typora 사진 git 연동
 
 ~~[TEAUK-WIKI : Typora 신기능 - 이미지 자동 업로드](https://taeuk-gang.github.io/wiki/Typora%20%EC%8B%A0%EA%B8%B0%EB%8A%A5%20-%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%9E%90%EB%8F%99%20%EC%97%85%EB%A1%9C%EB%93%9C/)~~ : 잘못된 경로설정 정보... 😂 고생했다 나자신
 
@@ -221,9 +315,13 @@ Generate new token > repo, workflow, gist 선택하고 만들기 선택
 
 생성된 token은 다시 열람할 수 없으니 복사해서 가지고 있던지, 아님 새로생성하면 된다.
 
+<br>
+
 ---
 
-**-고생했던 Error-**
+<br>
+
+<big>**-Error-**</big>
 
 Image Upload Error
 
@@ -244,9 +342,11 @@ Error Search
 - 결론 : Token Key가 expired되어 사용할 수 없는 상태였다.
   새로운 키를 만들어 하니까 Test Upload를 Error없이 수행할 수 있었다.
 
-**-Image Test-**
+<br>
 
-1. 자동저장o + PicGo 설정o
+<big>**-Image Test-**</big>
+
+1. <big>**자동저장(o) + PicGo 설정(o)**</big>
 
    ![image-20220316155613451](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155613451.png)
 
@@ -261,7 +361,9 @@ Error Search
    - githubuser 링크를 보면 내가 설정한 링크와 다르게 /img가 두번 들어가 있는데 이거 때문에 오류가 생겼던 것일까 생각도 잠~ 깐 들었지만, path에 맞게 잘 저장 되는것을 보아 그건 또 아닌것같기도하고,,,,
      - 다른 블로그에서는 마지막이 경로가아니고 branch명이라고 되어있는곳도 있었다.
 
-2. 자동저장 x + PicGo 설정
+   <br>
+
+2. <big>**자동저장(x) + PicGo 설정(o)**</big>
 
    ![image-20220316155956299](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155956299.png)
 
@@ -269,7 +371,9 @@ Error Search
 
    **이미지는 여전히 뜨지 않는다.**
 
-3. 자동저장o + PicGo설정 x
+   <br>
+
+3. <big>**자동저장(o) + PicGo 설정(x)**</big>
 
    ![image-20220316160626489](img/image-20220316160626489.png)
 
@@ -279,7 +383,11 @@ Error Search
 
    **해결**
 
-4. 위에서 생각했던 안되는 이유중에 경로 설정을 다시 해주는것 test
+   <br>
+
+4. customUrl의 마지막 경로를 branch로 작성
+
+   위에서 생각했던 안되는 이유중에 경로 설정을 다시 해주는것 test
 
    Test img는 잘 올라간다.
 
@@ -290,6 +398,8 @@ Error Search
    어쨋든 5번의 이유가 아니면 쓸 이유가 없어서 일단은 그냥 3번방식으로 쓸 것 같다.
 
    매번 업로드 하는것도 귀찮으니까 말이다. 😉
+
+   <br>
 
 5. 내가 생각하는 PicGo를 사용하는 이유
 
@@ -303,10 +413,12 @@ Error Search
 
    하지만 나는 감자기 때문에 그냥 main에 저장해서 쉽게쉽게 할것이다 😀
 
-
+<br><br>
 
 ---
 
 
 
 [ref-2](https://malgun-gothic.tistory.com/2)  [ref-2](https://steemit.com/kr/@antares007/-201787t14245290z)
+
+[moodle - 마크다운 고급 활용](https://docs.moodle.org/archive/ko/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%EC%9D%98_%EA%B3%A0%EA%B8%89_%ED%99%9C%EC%9A%A9)

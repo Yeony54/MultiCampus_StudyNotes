@@ -221,4 +221,96 @@ Series는 index를 기반으로 연산이 수행되기 때문에 자동으로 �
 
 ---
 
-### 03. Dataframe
+### 03. Dataframe 기본
+
+Dataframe은 Series의 집합이라고 볼 수 있다.
+
+Series의 특징은 같은 data type만 저장이 가능하다는 것이다.
+
+그래서 하나의 열 즉 Series의 데이터는 같은 data type만 저장이 가능하며, 다양한 Series들이 모여 DataFrame을 만들 수 있다.
+
+```python
+import numpy as np
+import pandas as pd
+
+my_dict = {'이름': ['홍길동', '아이유', '김연아', '신사임당'],
+           '학년': [4, 3, 2, 1],
+           '학점': [1.5, 2.4, 3.9, 3.2]}
+
+df = pd.DataFrame(my_dict)
+display(df)
+
+print(df.shape) # (4, 3)
+print(df.values) # 2차원 ndarray
+print(df.size) # DataFrame안의 요소 개수 => 12
+print(df.ndim) # 2
+print(df.index) # 행 index, RangeIndex(start=0, stop=4, step=1)
+print(df.columns) # 열 index, Index(['이름', '학년', '학점'], dtype='object')
+```
+
+> series 는 print 대신 display()를 사용하여 정돈된 테이블을 출력할 수 있다.
+
+**shape** : DataFrame의 shape속성을 출력해준다.
+
+**values** : my_dict로 삽입했던 데이터를 2차원 ndarray로 출력해준다.
+
+**size** : DataFrame안의 총 요소 개수를 출력해준다.
+
+**ndim** : DataFrame의 차원 개수를 출력해준다.
+
+**index** : 행 index를 출력해 준다.
+
+**columns** : 열 index를 출력해준다.
+
+```python
+df.index.name = '학번'
+df.columns.name = '학생정보'
+display(df)
+```
+
+index와 columns의 name 속성에 접근하여 name을 설정해 줄 수 있다.
+
+```python
+# DataFrame의 column명과 index명을 변경
+
+new_df = df.rename(columns={'이름':'학생이름',
+                           '학점':'평균평점'},
+                  index={0:'one'},
+                  inplace=False)
+display(new_df)
+```
+
+**rename( )** : 각 column명, index명을 바꿔줄 수 있다. dictionary 형태로 전달해준다.
+
+여기서 **inplace** 는 원본에 저장할지 안할지를 작성하는 속성이다.
+
+inplace = True 이면 원본에 저장하고 복사본을 만들지 않는다.
+inplace = False 이면 원본에 저장하지 않고, 복사본으로 만든다.
+
+```python
+# DataFrame의 특정 column을 index로 설정
+
+my_dict = {'이름': ['홍길동', '아이유', '김연아', '신사임당'],
+          '학년': [4, 3, 2, 1],
+          '학점': [1.5, 2.4, 3.9, 3.2]}
+
+df = pd.DataFrame(my_dict)
+display(df)
+
+new_df = df.set_index('이름',
+                     inplace=False)
+display(new_df)
+```
+
+set_index를 사용하면 특정 column을 사용해서 index로 만들 수 있다.
+
+
+
+
+
+
+
+
+
+
+

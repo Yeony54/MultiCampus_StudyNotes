@@ -35,6 +35,8 @@ jupyter notebook 새로운 파일생성
 
 new > 가상환경으로 만들기 > 이름바꾸기 > 학습하기
 
+
+
 ---
 
 ### 01. Data Handling : Numpy
@@ -83,6 +85,8 @@ Numpy 는 외장 module이기 때문에 설치해서 사용해야 한다.
 # matplotlib 설치
 > conda install matplotlib
 ```
+
+<br>
 
 ---
 
