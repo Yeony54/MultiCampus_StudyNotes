@@ -236,7 +236,7 @@ Error Search
 
 Image Test
 
-![image-20220316155248182](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155248182.png)
+
 
 이미지업로드를 하게 되면 `https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155248182.png` 라는 링크로 생성되게 된다. 
 
