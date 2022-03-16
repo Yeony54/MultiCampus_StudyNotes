@@ -236,7 +236,21 @@ Error Search
 
 Image Test
 
-![image-20220316153407869](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316153407869.png)
+![image-20220316153407869](/img/image-20220316153407869.png)
+
+
+
+자동저장 + PicGo 설정
+
+이미지업로드를 하게 되면 `https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316154255617.png` 라는 링크로 생성되게 된다. 
+
+이렇게 github으로 업로드를 하게 되면 img/ 폴더에 저장되게 된다.
+
+**그런데도 자꾸 오류가 떴다.**
+
+그런데 생각해보니 어차피 img/ 폴더에 저장이 될거면 upload가 필요할까라는 생각이 들었다....
+
+자동저장x + PicGo 설정
 
 
 
