@@ -213,13 +213,13 @@ Error Search
 
 Image Test
 
-![image-20220316150007278](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316150007278.png)
+![image-20220316150007278](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/image-20220316150007278.png)
 
 왜 안돼지
 
+![image-20220316150435713](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316150435713.png)
 
-
-
+![image-20220316151554206](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/image-20220316151554206.png)
 
 ---
 
