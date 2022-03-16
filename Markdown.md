@@ -236,7 +236,7 @@ Error Search
 
 Image Test
 
-1. 자동저장 + PicGo 설정
+1. 자동저장o + PicGo 설정o
 
 ![image-20220316155613451](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155613451.png)
 
@@ -255,6 +255,14 @@ git add, commit 후 push를 하려하면 pull을 하라는 메세지가 뜬다.
 2. 자동저장 x + PicGo 설정
 
 ![image-20220316155956299](https://raw.githubusercontent.com/Yeony54/MultiCampus_StudyNotes/img/img/image-20220316155956299.png)
+
+역시 pull 메세지가 떠서 pull을 하고 push를 완료해 주었다.
+
+**이미지는 여전히 뜨지 않는다.**
+
+3. 자동저장o + PicGo설정 x
+
+![image-20220316160626489](img/image-20220316160626489.png)
 
 
 
