@@ -223,26 +223,20 @@ ___
 
   
 
-#### 4. HTML의 표시 혹은 형식화된 문서
-
-뭔말인지 모르겠땅 ㅎㅎ;
-
-  
-
-#### 5. 특수문자 표현하기
+#### 4. 특수문자 표현하기
 
 표시될 문자 앞에 백슬래쉬(\\)를 넣어주면 특수문자를 표현할 수 있다.
 
 
 
-#### 6. 글 가운데 정렬
+#### 5. 글 가운데 정렬
 
 - html 태그인 `<center> </center>` 사용
 - 처음부터 끝까지 한 태그로 사용해도 되지만, 그렇게 하면 중간에 바꿀 수 없다.
 
   
 
-#### 7. 위 아래 첨자 글자 넣기
+#### 6. 위 아래 첨자 글자 넣기
 
 - 위첨자
   - html 태그 `<sup> </sup>` 사용
@@ -253,7 +247,7 @@ ___
 
   
 
-#### 8. 엔터, 띄어쓰기 많이 사용하기
+#### 7. 엔터, 띄어쓰기 많이 사용하기
 
 - 줄바꿈, 엔터
   - html 태그 `<br>` 사용
@@ -263,7 +257,7 @@ ___
 
 <br>
 
-#### 9. 예쁜 큰따옴표 표시
+#### 8. 예쁜 큰따옴표 표시
 
 - html 태그 `<q> </q>`사용
 
@@ -271,16 +265,48 @@ ___
 
 <br>
 
-#### 10. Copyright 심볼
+#### 9. Copyright 심볼
 
 - `&copy;` 사용
 - &copy;csora
+
+<br>
+
+<br><br>
+
+## Markdown 꾸미기
+
+<br>
+
+#### 1. Git Markdown 클릭 숨기기
+
+사진이 하나 덩그러니 있는거 보다 숨기는게 좋을것 같아서 찾아보았다.
+
+```
+<details><summary>CLICK ME</summary>
+    <img src = "../img/image-20220316182432700.png">
+</details>
+```
+
+<details><summary>예시 사진</summary>
+    <img src = "img/image-20220316182432700.png">
+</details>
+
+details 태그 안에 html 문법으로 꾸밀 수 있다.
+
+img 태그를 사용해서 이미지를 넣어주었다.
 
 <br><br><br>
 
 ## 기타
 
-#### 6. Typora 사진 git 연동
+#### Typora 수식 블록 사용법
+
+[Lagom's Blog](https://dev-lagom.tistory.com/35)
+
+
+
+#### Typora 사진 git 연동
 
 ~~[TEAUK-WIKI : Typora 신기능 - 이미지 자동 업로드](https://taeuk-gang.github.io/wiki/Typora%20%EC%8B%A0%EA%B8%B0%EB%8A%A5%20-%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%9E%90%EB%8F%99%20%EC%97%85%EB%A1%9C%EB%93%9C/)~~ : 잘못된 경로설정 정보... 😂 고생했다 나자신
 
@@ -411,14 +437,24 @@ Error Search
 
    **게다가, 위에서 설정했던 json 코드를 보면 branch설정 칸이 있는데, 여기에 main이 아닌 다른 branch으로 설정하게 되면 내 main에 보이지 않게 관리할 수도 있을것 같다.**
 
-   하지만 나는 감자기 때문에 그냥 main에 저장해서 쉽게쉽게 할것이다 😀
+   하지만 나는 감자이기 때문에 그냥 main에 저장해서 쉽게쉽게 할것이다 😀
 
 <br><br>
 
 ---
 
+<br>
 
+#### Reference
 
 [ref-2](https://malgun-gothic.tistory.com/2)  [ref-2](https://steemit.com/kr/@antares007/-201787t14245290z)
 
 [moodle - 마크다운 고급 활용](https://docs.moodle.org/archive/ko/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%EC%9D%98_%EA%B3%A0%EA%B8%89_%ED%99%9C%EC%9A%A9)
+
+[steemit - 글쓰기, 마크다운 고급과정](https://steemit.com/kr/@newiz/3)
+
+[dev guide - Github markdown 클릭 숨기기](https://blog.naver.com/PostView.naver?blogId=gingsero&logNo=222341674757&categoryNo=84&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=search)
+
+<br>
+
+<br>
