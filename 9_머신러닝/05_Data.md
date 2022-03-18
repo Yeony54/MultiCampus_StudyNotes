@@ -6,6 +6,26 @@ Machine learning
 
 
 
+### 00. Settings
+
+Seaborn에서 제공하는 Titanic 데이터와 이전실습에 썼던 mpg 데이터를 실습에 사용한다.
+
+Pandas는 그래프도구를 내장하고 있는데, 이 기능들은 matplotlib으로부터 차용된 것이다.
+
+그래서 Pandas의 그래프도구를 사용하는 것 보다 matplotlib 사용법을 배워보는것이 좋다.
+
+```python
+# Seaborn 다운로드
+> conda install seaborn
+```
+
+```python
+#Seaborn 선언
+import seaborn as sns
+```
+
+
+
 ### 01. 데이터 전처리 종류
 
 - missing value (결측치)
@@ -210,19 +230,57 @@ df = pd.DataFrame({'c1':['a', 'a', 'b', 'a','b'],
 
 Data를 Import하고 dtypes를 보면, 내가 생각했던것과 다르게 자료형이 들어간 경우가 있다.
 
-```python
-df = pd.read_csv('./data/auto-mpg.csv', header=None)
-df.columns = ['mpg', 'cylinders', 'displacement', 'horsepower',
-              'weight','acceleration','year','origin','name']
-```
-
-
-
-
-
 
 
 #### A. 데이터 타입 변경
+
+- **숫자가 object 형으로 되어있는 경우**
+
+  > 📌 **결측치 표기방식**
+  >
+  > 원래 결측치(Missing Value)는 `NaN`으로 표현되는데 가끔씩 다른문자(`?`, `-`)로 표현되는 경우가 종종 있다.
+  >
+  > 권장되는 방법은 이런 문자들을 `NaN`으로 변환시켜서 우리가 알고있는 dropna()메소드를 이용하여 결측치를 처리하는 방법이다.
+
+  ```python
+  df = pd.read_csv('./data/auto-mpg.csv', header=None)
+  df.columns = ['mpg', 'cylinders', 'displacement', 'horsepower',
+                'weight','acceleration','year','origin','name']
+  ```
+
+  이 예제에서 horsepower 컬럼의 값들이 float이 아닌 object형으로 되어있다.
+
+  ```python
+  df['horsepower'].replace('?', np.nan, inplace=True)
+  df.dropna(subset=['horsepower'], axis=0, inplace=True)
+  df['horsepower']=df['horsepower'].astype('float')
+  ```
+
+  - `?`로 되어있던 결측치를 `np.nan`을 사용해서 `NaN`으로 변경해주었다.
+
+  - horsepower 컬럼에서 `NaN`값을 가진 행을 drop 하였다.
+  - 마지막으로 이 컬럼의 data type을 float으로 변경해 주었다.
+
+  
+
+- **Category형의 데이터일 경우**
+
+  ```python
+  df['origin'].replace({1:'USA',
+                       2:'EU',
+                       3:'JPN'},
+                      inplace=True)
+  
+  df['origin']=df['origin'].astype('category')
+  ```
+
+  카테고리인 경우, type명을 category라고 해주면 조금 다르게 계산이 된다고 한다! 뭔진 잘모르겠다!
+
+  Category형 변수는 one-hot encoding등의 인코딩 과정을 거쳐 컴퓨터가 알 수 있는 숫자로 만들어 주어야 한다.
+
+  
+
+  
 
 #### B. 범주형 데이터
 
@@ -248,23 +306,53 @@ df.columns = ['mpg', 'cylinders', 'displacement', 'horsepower',
 >
 > 👉 경계 4개로 구간 3개가 만들어지는것을 확인할 수 있다.
 
-이를 코드로 만들어보면
+이를 horsepower에 적용해 보았다.
 
 ```python
+# horsepower dtype 변경
+df['horsepower'].replace('?', np.nan, inplace=True)     # Missing Value 변환
+df.dropna(subset=['horsepower'], axis=0, inplace=True)  # Missing Value 삭제
+df['horsepower']=df['horsepower'].astype('float')       # Data type 변환
+
+# horsepower 구간분할
+count, bin_divider = np.histogram(df['horsepower'], bins=3)
+
+bin_names=['저출력', '보통출력', '고출력']
+df['hp_bin']=pd.cut(x=df['horsepower'],
+                   bins=bin_divider,
+                   labels=bin_names,
+                   include_lowest=True)
 ```
+
+- 위에서 한 dtype 변경 방법으로 horsepower의 dtype을 변경시켜주었다.
+- histogram을 통해 구간분할을 적절히 해주었다.
+- 세개의 구간으로 나누어 구간분할을 마무리해주었다.
+
+📌 구간분할을 하면 연산도 빨라지고 정확도도 높아진다.
+
+범주형으로 바꿔줬지만, 이것 또한 사람에게 익숙한 글자로 이루어진 데이터이다. 
+
+컴퓨터가 알아보기 쉽게 Encoding을 거쳐야 한다.
+
+
 
 🛸 **One-Hot Encoding**
 
-구간분할을 한 데이터의 카테고리명은 우리가 알기 쉬운 언어로 잘 구분되어있다.
+카테고리명은 우리가 알기 쉬운 언어로 잘 구분되어있다.
 
-하지만 이것은 사람이 봤을 때의 이야기이고, 컴퓨터가 계산하기에는 적합하지 않다.
+하지만 글자로 이루어진 데이터는 컴퓨터가 계산하기에는 적합하지 않다.
 
-그래서 컴퓨터가 인식할 수 있는 형태로 바꾸는 방법 중 하나가 One-Hot Encoding이다.
+그래서 컴퓨터가 인식할 수 있는 0과 1의 형태로바꾸는 방법 중 하나가 One-Hot Encoding이다.
 
-dummy variable(더미변수) 를 주어 해당 특성의 유무를 0과 1로 표현하는 것이다.
+dummy variable(더미변수) 를 주어 해당 특성의 유무를 0과 1로 표현한다.
 
 ```python
+horsepower_dummy = pd.get_dummies(df['hp_bin'])
 ```
+
+- horsepower를 구간분할 해주었던 컬럼의 dummies를 받아 One-Hot Encoding을 할 수 있다.
+
+
 
 
 
@@ -298,42 +386,13 @@ min-max 공식을 사용하여 각 열을 정규화 해줄 수 있다.
 
 하지만 min-max scaling은 이상치가 존재하면 취약한 단점이 있다.
 
-
-
-
-
-### 07. 실습
-
-Seaborn에서 제공하는 Titanic 데이터와 이전실습에 썼던 mpg 데이터를 실습에 사용한다.
-
-Pandas는 그래프도구를 내장하고 있는데, 이 기능들은 matplotlib으로부터 차용된 것이다.
-
-그래서 Pandas의 그래프도구를 사용하는 것 보다 matplotlib 사용법을 배워보는것이 좋다.
-
 ```python
-# Seaborn 다운로드
-> conda install seaborn
+df['horsepower'] = (df['horsepower']-df['horsepower'].min())/(df['horsepower'].max()-df['horsepower'].min())
 ```
 
-```python
-#Seaborn 선언
-import seaborn as sns
-```
-
-Seaborn도 다른 module처럼 자주쓰는 약어가 있다.
+- horsepower의 데이터를 Min-Max Scaling 해주었다.
 
 
-
-#### A. Data Loading
-
-```python
-import numpy as np
-import pandas as pd
-import seaborn as sns
-
-# titanic data set loading
-df = sns.load_dataset('titanic')
-```
 
 
 
