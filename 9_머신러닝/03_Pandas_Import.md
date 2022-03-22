@@ -164,3 +164,43 @@ json 핸들링해서 Box office data 2차원으로 예쁘게 만들기
 
 
 
+### 04. Excel Import
+
+excel import를 위한 도구 설치
+
+```python
+> conda install openpyxl
+```
+
+```python
+df = pd.read_excel('./data/lineplot_sample_data.xlsx')
+```
+
+
+
+### 05. encoding type
+
+```powershell
+> pip install chardet
+```
+
+promp 창에서 모듈 설치
+
+```python
+import chardet
+with open('./data/weather/seoul.csv','rb') as f: file_data = f.readline()
+enc = chardet.detect(file_data)['encoding']
+```
+```python
+df_seoul = pd.read_csv('./data/weather/seoul.csv', encoding=enc)
+```
+
+한줄을 읽고 그 파일에 대한 encoding정보를 가져와서 read_csv에 인자로 준다.
+
+- ERROR : Error tokenizing data. C error: Expected 1 fields in line 8, saw 5
+
+  ```python
+  df_seoul = pd.read_csv('./data/weather/seoul.csv', encoding=enc, sep='\t')
+  ```
+
+  파일포맷의 띄어쓰기가 '\t'를 구분자(delimiter)로 설정되어있어 읽어올때 적당한 파라미터를 설정

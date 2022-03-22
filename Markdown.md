@@ -296,7 +296,73 @@ details 태그 안에 html 문법으로 꾸밀 수 있다.
 
 img 태그를 사용해서 이미지를 넣어주었다.
 
-<br><br><br>
+<br>
+
+#### 2. 이미지 크기 조정
+
+```markdown
+<img src="/img/myImg.png" width="300" height="300">
+```
+
+https://blog.yena.io/studynote/2017/11/23/Github-resize-image.html
+
+
+
+#### 3. 이미지옆에 글쓰기
+
+https://steemit.com/kr/@phuzion7/tip-floating-images - 안되네 ㅠㅠ
+
+
+
+#### 4. 표 예쁘게 꾸미기
+
+```html
+<table>
+  <tr>
+    <th colspan='2' rowspan='2'></th>
+    <th colspan='2' style="text-align:center;">변수 1</th>
+  </tr>
+  <tr>
+    <th style="text-align:center;">질적 변수(Category)</th>
+    <th style="text-align:center;">양적 변수(Numeric)</th>  
+  </tr>
+  <tr>
+    <th rowspan='2' width='80'>변수 2</th>
+    <th style="text-align:center;">질적<br>변수</th>
+    <td style="text-align:center;">Cross Table<br>Mosaic Plot</td>
+    <td style="text-align:center;">Box Plot<br>범주(Category)별 통계 분석</td>  
+  </tr>
+  <tr>
+    <th style="text-align:center;">양적<br>변수</th>
+    <td style="text-align:center;">Box Plot<br>범주(Category)별 통계 분석</td>
+    <td style="text-align:center;">Correlation<br>Regression<br>Scatter Plot</td>  
+  </tr>
+</table>
+```
+
+<table>
+  <tr>
+    <th colspan='2' rowspan='2'></th>
+    <th colspan='2' style="text-align:center;">변수 1</th>
+  </tr>
+  <tr>
+    <th style="text-align:center;">질적 변수(Category)</th>
+    <th style="text-align:center;">양적 변수(Numeric)</th>  
+  </tr>
+  <tr>
+    <th rowspan='2' width='80'>변수 2</th>
+    <th style="text-align:center;">질적<br>변수</th>
+    <td style="text-align:center;">Cross Table<br>Mosaic Plot</td>
+    <td style="text-align:center;">Box Plot<br>범주(Category)별 통계 분석</td>  
+  </tr>
+  <tr>
+    <th style="text-align:center;">양적<br>변수</th>
+    <td style="text-align:center;">Box Plot<br>범주(Category)별 통계 분석</td>
+    <td style="text-align:center;">Correlation<br>Regression<br>Scatter Plot</td>  
+  </tr>
+</table>
+
+<br><br>
 
 ## 기타
 

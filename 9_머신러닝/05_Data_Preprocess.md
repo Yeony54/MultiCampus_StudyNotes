@@ -396,11 +396,3 @@ df['horsepower'] = (df['horsepower']-df['horsepower'].min())/(df['horsepower'].m
 
 
 
-
-
-
-
-
-
-
-

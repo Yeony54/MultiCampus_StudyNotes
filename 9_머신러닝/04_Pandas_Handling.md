@@ -382,7 +382,238 @@ by 속성을 사용하여 그 컬럼 내의 value를 기준으로 정렬시킨�
 
 
 
+### 06. Frame 결합
+
+#### A. pd.concat()
+
+- 행방향
+
+    ```python
+    result_df = pd.concat([df1, df2], axis=0) 
+    ```
+
+    기존의 index를 유지하면서 연결
+
+    ```python
+    result_df = pd.concat([df1, df2], axis=0, ignore_index=True) 
+    ```
+
+    기존의 index를 없애고 숫자 index를 다시 설정
+
+- 열방향
+
+    ```python
+    result_df = pd.concat([df1, df2], axis=1)
+    ```
+
+#### B. pd.merge()
+
+- inner join
+
+  ```python
+  result_df = pd.merge(df1, df2, on='학번', how='inner')
+  ```
+
+  두테이블이 겹치는게 없을경우 삭제하고 나머지를 merge한 결과를 보여준다.
+
+- outer join
+
+  ```python
+  result_df = pd.merge(df1, df2, on='학번', how='outer')
+  ```
+
+  두테이블에 겹치는게 없을경우에도 전부 보여주고 없는값은 NaN으로 채운다.
+
+- left outer join
+
+  ```python
+  result_df = pd.merge(df1, df2, on='학번', how='left')
+  ```
+
+  왼쪽 테이블 데이터 중 겹치는게 없어도 전부 보여주고 없는값은 NaN으로 채운다.
+
+- right outer join
+
+  ```python
+  result_df = pd.merge(df1, df2, on='학번', how='right')
+  ```
+
+  오른쪽 테이블 데이터 중 겹치는게 없어도 전부 보여주고 없는값은 NaN으로 채운다.
 
 
 
+- 결합하려는 기준 column명이 서로 다른 경우
 
+  ```python
+  result_df = pd.merge(df1, df2, 
+                       left_on='학번', 
+                       right_on='학생학번', 
+                       how='inner')  
+  ```
+
+  left, right의 column명을 지정해주어 결합시켜준다.
+
+  
+
+- 결합하려는 기준 column명과 다른 DataFrame의 행 index를 결합시킬 경우
+
+  ```python
+  result_df = pd.merge(df1, df2, 
+                       left_on='학번', 
+                       right_index=True, 
+                       how='inner')  
+  ```
+
+  `_index` 값을 True로 해준다.
+
+  만약 left, right 둘다 index값으로 하고싶다면, 둘다 하면된다.
+
+  ```python
+  result_df = pd.merge(df1, df2, 
+                       left_index=True, 
+                       right_index=True, 
+                       how='inner')  
+  ```
+
+- DataFrame과 Series를 결합시킬경우
+
+  [reference](https://stackoverflow.com/questions/26265819/how-to-merge-a-series-and-dataframe)
+
+  - 시리즈를 인자로 주기
+  
+      ``` python
+      df.merge(s.rename('new'), left_index=True, right_index=True)
+      ```
+
+      시리즈 이름만 있으면 DataFrame과 시리즈를 병합할 수 있다.
+
+  - 시리즈를 DataFrame으로 만들기
+  
+      ```python
+      df.merge(s.to_frame(), left_index=True, right_index=True)
+      ```
+  
+      to_frame()으로 series를 dataframe으로 만들 수 있다.
+  
+      
+  
+  
+
+
+
+### 08. Mapping
+
+#### A. Series mapping : apply()
+
+- 사용자 정의 함수 사용
+
+  ```python
+  def add_10(n):
+      return n + 10
+  sr1 = df['age'].apply(add_10)
+  ```
+
+  이렇게 사용할 수 있지만, 일반적이지 않다.
+
+- 람다식 사용
+
+  ```python
+  sr1 = df['age'].apply(lambda x: x + 10)
+  ```
+
+
+
+#### B. DataFrame mapping : applymap()
+
+- 람다식 사용
+
+  ```python
+  result_df = df.applymap(lambda x: x + 10)
+  ```
+
+- 벡터연산 사용
+
+  ```python
+  result_df = df + 10
+  ```
+
+  
+
+#### C. DataFrame mapping : apply()
+
+- axis 명시해서 apply() 사용
+
+  ```python
+  def min_max(s):
+      return (s - s.min()) / (s.max() - s.min())
+  
+  result_df = df.apply(min_max, axis=0)
+  ```
+
+  각 열에 min_max 함수를 적용해주는 예시이다.
+
+  axis = 0을 적용해서 각 열에 대한 정규화를 진행해주었다.
+
+
+
+### 09. Grouping
+
+#### A. groupby()
+
+- groupby()
+
+  ```python
+  grouped = df.groupby(['class'])
+  ```
+
+  titanic 데이터예제를 class별로 묶어주었다.
+
+  두개의 열을 그룹화시키고 싶다면, 리스트를 주어주면 된다.
+
+  ```python
+  grouped = df.groupby(['class', 'sex'])
+  ```
+
+- for 문으로 group 된 데이터 확인하기
+
+  ```python
+  for key, group in grouped:
+      print('key ', key)
+      display(group.head())
+  ```
+
+- 특정 group을 DataFrame으로 가져오기
+
+  ```python
+  result_df = grouped.get_group('Third')
+  ```
+
+  Class가 Third인 그룹을 get_group()을 사용해서 가져올 수 있다.
+
+  두개의 열을 그룹화했다면, 
+
+  ``` python
+  my_group = grouped.get_group(('First', 'female'))
+  ```
+
+- 각 그룹에 대한 집계함수 사용하기
+
+  groupby()로 그룹핑된 데이터들은 집계함수 사용이 가능하다.
+
+  ```python
+  my_mean = grouped.mean()
+  ```
+
+
+
+- filter()
+
+  그룹에 대한 filter를 진행할 수 있다.
+
+  ```python
+  grouped_filter = grouped.filter(lambda x: len(x) > 300)
+  ```
+
+  클래스별 그룹을 진행한 다음, filter하여 group의 데이터의 개수가 300개 이상인것을 filtering 하였다.
+
+  
