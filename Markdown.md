@@ -2,6 +2,10 @@ Markdown
 
 ## Markdown 기본
 
+색상코드표 링크 : [iconic1987](https://m.blog.naver.com/hellonami/30189427178)
+
+
+
 #### 1. 제목(Header)
 
 ```
@@ -361,8 +365,54 @@ https://steemit.com/kr/@phuzion7/tip-floating-images - 안되네 ㅠㅠ
     <td style="text-align:center;">Correlation<br>Regression<br>Scatter Plot</td>  
   </tr>
 </table>
-
 <br><br>
+
+#### 5. 글자색상 변경
+
+```markdown
+<span style="color:#d3d3d3">#d3d3d3</span>
+<span style="color:rgb(245, 235, 13)">rgb(245, 235, 13)</span>
+<span style="color:#2D3748; background-color:#fff5b1;">Strong</span>
+```
+
+<span style="color:red">red</span>
+
+<span style="color:blue">blue</span>
+
+<span style="color:green">green</span>
+
+<span style="color:#d3d3d3">#d3d3d3</span>
+<span style="color:rgb(245, 235, 13)">rgb(245, 235, 13)</span>
+
+#### 6. 형광펜
+
+```markdown
+<span style="background-color:#fff5b1;">노란형광펜</span>
+<span style="background-color:#f6f8fa;">회색형광펜</span>
+<span style="background-color:#f1f8ff;">파랑형광펜</span>
+<span style="background-color:#ffdce0;">빨강형광펜</span>
+<span style="background-color:#dcffe4;">초록형광펜</span>
+<span style="background-color:#f5f0ff;">보라형광펜</span>
+<span style="background-color:#f7ddbe;">주황형광펜</span>
+```
+
+**<span style="background-color:#fff5b1;">노란형광펜</span>**
+
+**<span style="background-color:#f6f8fa;">회색형광펜</span>**
+
+**<span style="background-color:#f1f8ff;">파랑형광펜</span>**
+
+**<span style="background-color:#ffdce0;">빨강형광펜</span>**
+
+**<span style="background-color:#dcffe4;">초록형광펜</span>**
+
+**<span style="background-color:#f5f0ff;">보라형광펜</span>**
+
+**<span style="background-color:#f7ddbe;">주황형광펜</span>**
+
+<br>
+
+<br>
 
 ## 기타
 
@@ -370,7 +420,26 @@ https://steemit.com/kr/@phuzion7/tip-floating-images - 안되네 ㅠㅠ
 
 [Lagom's Blog](https://dev-lagom.tistory.com/35)
 
+[devbull-일시불의개발일기](https://devbull.xyz/simple-md-latex/)
 
+- [Latex Cheatsheet](https://drive.google.com/file/d/1dEEAXMhHo9TgmZmXSNWSVlG6YOeWp_gj/view)
+
+#### css/html 적용
+
+아직안사용해봄
+
+```html
+## css 클래스 사용
+# css 클래스 생성
+.custom{
+    width:100;
+    height:100;
+}
+## 생성된 css 클래스를 마크다운에서 불러오기
+![title](/imges/img.png){:.custom}
+## html
+<img src="/imges/img.png" width="300" height="300">
+```
 
 #### Typora 사진 git 연동
 
@@ -520,6 +589,8 @@ Error Search
 [steemit - 글쓰기, 마크다운 고급과정](https://steemit.com/kr/@newiz/3)
 
 [dev guide - Github markdown 클릭 숨기기](https://blog.naver.com/PostView.naver?blogId=gingsero&logNo=222341674757&categoryNo=84&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=search)
+
+[geniewishescometrue - 형광펜](https://geniewishescometrue.tistory.com/101)
 
 <br>
 

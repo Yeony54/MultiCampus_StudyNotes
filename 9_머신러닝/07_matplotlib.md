@@ -180,7 +180,7 @@ plt.show()
 
 - Boxplot에서 나오는 outlier는 수치적 계산으로 나온 이상치 일 뿐, 실제로 이상치인지는 모른다.
 
-<img src="../img/image-20220322150217718.png" width="500" height="400">
+<img src="../img/image-20220323173101200.png" width="600" height="450">
 
 
 

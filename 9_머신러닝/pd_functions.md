@@ -17,3 +17,11 @@ pd.to_datetime(df['timestamp_column'], unit='s')
 str.extract()
 
 str.contains()
+
+
+
+dataframe for 문 https://ponyozzang.tistory.com/609
+
+df.iteritems()
+
+df.iterrows()
