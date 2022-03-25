@@ -7,6 +7,10 @@ Markdown
 [기호검색 사이트 - detexify](https://detexify.kirelabs.org/classify.html)
 
 내가 자주볼것같아서 정리한 LATEX 문법
+$$
+\lim_{x \to0}
+$$
+
 
 #### 00. 사용법
 
