@@ -228,6 +228,13 @@ Overfitting은 과대적합, Underfitting은 과소적합이라고 하며 둘을
 
 Overfitting이란 Training Data Set에 너무 잘 맞춰져서 오히려 Test Data Set에 대해서는 정확도가 떨어지는 경우를 지칭한다.
 
+> ❓ Overfitting을 어떻게 판단하나요?
+>
+> Training Data Set을 평가가 80~90% 정도일 떄는 underfitting이라고 생각한다. 
+> 이 평가점수가 98% 이상 거의 100%가 되어야 좋은 모델이라고 생각한다.
+>
+> Validation Data Set 평가에서 80% 이상이나오면 overfitting이라고 생각한다.
+
 <img src="../img/image-20220406174726458.png" width="700" height="350">
 
 Over Fitting 방지 방법
@@ -272,5 +279,43 @@ Over Fitting 방지 방법
 
 5. K-Fold Cross Validation (vs. Hold-Out validation)
 
-   - 
+   <table>
+       <tr>
+           <td colspan='3' style="text-align:center;"
+               bgcolor="#FFFFFF">Original Data Set</td>
+       </tr>
+       <tr>
+           <td colspan='2' style="text-align:center;"
+               bgcolor="#FFFFFF">Training Data Set</td>
+           <td style="text-align:center;"
+               bgcolor="#FFFFFF">Test Data Set</td>
+       </tr>
+       <tr>
+           <td style="text-align:center;"
+               bgcolor="#FFFFFF"><span style="color:blue">Training Data Set</span></td>
+           <td style="text-align:center;"
+               bgcolor="#FFFFFF"><span style="color:red">Validation Data Set</span></td>
+           <td style="text-align:center;"
+               bgcolor="#FFFFFF">Test Data Set</td>
+       </tr>
+   </table>
+   
+   - 보통 Training Data 와 Validation Data는 7:3, 8:2 정도의 비율로 분할한다.
+     분할할 때에는 데이터의 치우침이 없는지 bias를 신경써 주어야 한다.
+   
+     > 만약 [0000000111]이라는 데이터가 있을 때, 이를 그냥 나누어주게 된다면
+     >
+     > \[0000000]와 [111] 로 나누어 지게 될 수 있다.
+     >
+     > sklearn에서 제공하는 모듈로 [0000011] [001] 처럼 bias에 치우침이 없게 나누어 주어야 한다.
+   
+   - K-Fold Cross Validation
+   
+     - K개 만큼 데이터를 나누어 각 데이터 set 마다 한번씩 validation 데이터를 시험하여 accuracy를 계산하여 이를 평균낸 값을 최종 accuracy로 사용한다.
+   
+     - 시간이 오래걸리는 단점이 있다.
+   
+       <img src="../img/image-20220408165940122.png" width="500" height="350">
+
+### 08. 예시
 
