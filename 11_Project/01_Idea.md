@@ -95,3 +95,5 @@
 딥러닝 자료
 
 1. 딥 러닝을 이용한 자연어 처리 입문 [link](https://wikidocs.net/book/2155)
+
+ 2 2  22 dfslkdfja.djf.akjf ;merjfm;slkdjfm;lkcsjtmlkvr shgfld/j.xfkptoerjwabdbgpfsebjfkdvxcn
