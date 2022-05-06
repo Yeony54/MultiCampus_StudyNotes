@@ -65,3 +65,74 @@ dacon 폴더생성, 정규화 코드 [link](https://dacon.io/competitions/offici
 
 [link3:모델두개합치기](https://www.facebook.com/groups/TensorFlowKR/permalink/675251819482546/?comment_id=675256699482058&reply_comment_id=675269169480811)
 
+
+
+**👉0502**
+
+TFRecord
+
+
+
+**👉0503**
+
+TFRecord 어렵다 ㅠㅠ 포기
+
+[link1](https://limjun92.github.io/assets/TensorFlow%202.0%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3.%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%A1%9C%EB%93%9C%20%EB%B0%8F%20%EC%82%AC%EC%A0%84%20%EC%B2%98%EB%A6%AC/%5B%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC8%5D%20TFRecord%EC%99%80%20tf.Example/) : TFRecord, tf.Example 튜토리얼8
+
+[link2](https://dacon.io/codeshare/1731) : Dacon TFRecord 튜토리얼 
+
+[link3](https://velog.io/@springkim/tfrecord-%EC%95%95%EC%B6%95-%EC%98%B5%EC%85%98-%EA%B4%80%EB%A0%A8) : TFRecord 압축옵션
+
+[link4](https://engineer-mole.tistory.com/206) : multiple 예제 TFRecord
+
+> Error : module 'tensorflow' has no attribute 'python_io' => 지금은 사용하지 않는것
+>
+> Error : corrupted record at 0
+
+
+
+<span style="color:red">데이터 증식</span>
+
+
+
+F1-Score
+
+[link](https://blog.naver.com/PostView.nhn?blogId=wideeyed&logNo=221531940245) : 정리자료
+
+
+
+**👉0504**
+
+EfficientNet으로 학습
+
+**Error** : ResourceExhaustedError
+
+GPU메모리 오류
+
+**Error** : InvalidArgumentError
+
+[link1](https://www.kaggle.com/questions-and-answers/170273) : kaggle, 같은 issue
+
+**Weight 설정**
+
+[link](https://ryanclaire.blogspot.com/2020/08/keras-weights.html00) : weight 가져오기, 설정하기, 저장하기 방법
+
+**Git 정리** [link](https://github.com/zalandoresearch/fashion-mnist) : MNIST Git 정리잘되어있음 따라서 Git 작성해보기
+
+[cat-dog 정리 git](https://github.com/KerasKorea/KEKOxTutorial/blob/master/27_little_data_powerful_model.md)
+
+[model 만들기 정리, 설명](https://tykimos.tistory.com/13)
+
+
+
+**👉0505**
+
+**Error** : InvalidArgumentError
+
+[link](https://luvbb.tistory.com/5) : one-hot encoding 추가해서 해결
+
+참고 코드 
+
+[link1](https://wikidocs.net/73910) : 가위바위보 multinomial 
+
+[link2](https://velog.io/@robert-lee/Tensorflow-Keras-Multi-Class-Classification-%EC%9D%84-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EC%9E%90) : 개고양이판다 multinomial : one-hot
