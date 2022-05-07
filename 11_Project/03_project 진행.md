@@ -129,10 +129,20 @@ GPU메모리 오류
 
 **Error** : InvalidArgumentError
 
-[link](https://luvbb.tistory.com/5) : one-hot encoding 추가해서 해결
+[link](https://luvbb.tistory.com/5) : one-hot encoding 추가해서 해결 (이미지가아님)
 
 참고 코드 
 
 [link1](https://wikidocs.net/73910) : 가위바위보 multinomial 
 
 [link2](https://velog.io/@robert-lee/Tensorflow-Keras-Multi-Class-Classification-%EC%9D%84-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EC%9E%90) : 개고양이판다 multinomial : one-hot
+
+
+
+**👉0507**
+
+[link](https://www.kaggle.com/code/archisha26/imagedatagenerator-efficientnet-b0/notebook) : ImageDataGenerator + EfficientNet-B0 kaggle 예제
+
+> EfficientNetB4는 어떻게 해야 동결을 풀수 있는지 모르겠음
+>
+> 동력하고 한번 돌리고 동결풀고 다시한번 돌리려고 함
