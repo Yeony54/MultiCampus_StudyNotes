@@ -146,3 +146,8 @@ GPU메모리 오류
 > EfficientNetB4는 어떻게 해야 동결을 풀수 있는지 모르겠음
 >
 > 동력하고 한번 돌리고 동결풀고 다시한번 돌리려고 함
+
+[link](https://www.tensorflow.org/tutorials/keras/save_and_load?hl=ko) : checkpoint 불러오기
+
+[link](https://www.cognex.com/ko-kr/blogs/deep-learning/research/anomaly-detection-overview-1-introduction-anomaly-detection) : 이상치탐색 방법론
+
