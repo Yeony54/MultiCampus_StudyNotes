@@ -151,3 +151,61 @@ GPU메모리 오류
 
 [link](https://www.cognex.com/ko-kr/blogs/deep-learning/research/anomaly-detection-overview-1-introduction-anomaly-detection) : 이상치탐색 방법론
 
+**Error** : ('Keyword argument not understood:', 'keepdims')
+
+> [link](https://discuss.streamlit.io/t/unable-to-load-my-saved-model-using-tensorflow-keras/13026/11) : tensorflow 버전 맞춰주어야 할것같음
+
+**Error** : 
+
+WARNING:tensorflow:Model was constructed with shape (None, 256, 256, 3) for input KerasTensor(type_spec=TensorSpec(shape=(None, 256, 256, 3), dtype=tf.float32, name='efficientnet-b4_input'), name='efficientnet-b4_input', description="created by layer 'efficientnet-b4_input'"), but it was called on an input with incompatible shape (None, 256, 256). 
+WARNING:tensorflow:Model was constructed with shape (None, 256, 256, 3) for input KerasTensor(type_spec=TensorSpec(shape=(None, 256, 256, 3), dtype=tf.float32, name='input_1'), name='input_1', description="created by layer 'input_1'"), but it was called on an input with incompatible shape (None, 256, 256).
+
+
+
+**👉0509**
+
+predict 시 이미지 오류 [link](https://stackoverflow.com/questions/40119743/convert-a-grayscale-image-to-a-3-channel-image) 흑백이미지의 경우 차원수가 맞지 않아서 차원올려줌
+
+**Error** : 저장된 model, ckpt 불러오는데 오류 : ㅠㅠ
+
+이미지 크기 키워서 모델돌려보기 (아래 설정값 참고)
+
+```python
+## image generator 고정
+datagen = ImageDataGenerator(
+    rotation_range=80,
+    width_shift_range=0.1,
+    height_shift_range=0.1,
+    zoom_range=0.1,
+    horizontal_flip=True,
+    vertical_flip=True,
+    shear_range = 10,
+    fill_mode='constant')
+```
+
+
+
+**👉0510**
+
+[link1](https://newindow.tistory.com/254) [link2](https://ang-love-chang.tistory.com/120) : 데이터셋이 충분하지 않아 Fine-Tuning 없이 진행
+
+[link1-kaggle](https://keras.io/examples/vision/image_classification_efficientnet_fine_tuning/) [link2](https://keep-steady.tistory.com/35) : B4, 이미지 사이즈 380
+
+[link1](https://kmhana.tistory.com/26), [link2](https://hoya012.github.io/blog/EfficientNet-review/) : efficientNet 논문요약
+
+[link](https://www.tensorflow.org/guide/keras/save_and_serialize?hl=en) : tensorflow, custom_objects 설정방법
+
+
+
+-------------------- 갈 엎 -------------------------
+
+
+
+**👉0511**
+
+[link](https://tempdev.tistory.com/32) : python cv 이미지 채널 변경
+
+[link](https://deep-learning-study.tistory.com/185) : cv image 보간법 : INTER_AREA
+
+[link](https://wikidocs.net/57165) : **PyTorch 딥러닝입문** 
+
