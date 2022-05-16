@@ -209,3 +209,36 @@ datagen = ImageDataGenerator(
 
 [link](https://wikidocs.net/57165) : **PyTorch 딥러닝입문** 
 
+
+
+
+
+**👉0512**
+
+[link](https://pytorch.org/vision/stable/auto_examples/plot_transforms.html#sphx-glr-auto-examples-plot-transforms-py%20%EC%B6%9C%EC%B2%98:%20https://nomalcy.tistory.com/191%20[NOMALCY]) pytorch transform 종류
+
+[link1](https://twinw.tistory.com/247) [★link2](https://dbstndi6316.tistory.com/297) : optimizer 설명
+
+[link](https://www.programcreek.com/python/example/92673/torch.optim.Adadelta) : optimizer Example
+
+[link](https://d2l.ai/chapter_optimization/adadelta.html) : Adadelta에는 학습률 매개변수가 없습니다. 대신 매개변수 자체의 변화율을 사용하여 학습률을 조정합니다.
+
+[link](https://blog.naver.com/PostView.naver?blogId=sjy5448&logNo=222427780700&parentCategoryNo=153&categoryNo=&viewDate=&isShowPopularPosts=true&from=search) : K-Fold, **Stratified K-Fold**
+
+
+
+**optimizer 다르게 해서 efficient_b4 돌려보기**
+
+- Adam(태호), RAdam(재성), adadelta(지연)(weight_decay o,x)
+
+
+
+b4+adadelta 가 이때까지 제일 잘나옴
+
+
+
+**metal_nut의 class idx(7) 를 사용해 flip 방지**
+
+
+
+* 오버피팅이 너무높을경우 weight_decay 올리기
