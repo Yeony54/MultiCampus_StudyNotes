@@ -27,7 +27,6 @@
 
 
 - [IOT - 카트 브레이크](http://www.ntrexgo.com/archives/27287)
-- 
 
 
 
@@ -36,3 +35,17 @@
 - [Naver Clover](https://www.ncloud.com/product/aiService/csr)
 - [Google Python TTS](https://antilibrary.org/2410), [Google Python TTS2](https://coding-yoon.tistory.com/26)
 - 
+
+
+
+## IOT
+
+- 비콘
+  - 거리구하기 [link](https://ghatdev.tistory.com/7)
+
+
+
+## AI
+
+- 모델
+  - 모델추천 [link](http://surpriselib.com/)
