@@ -1,16 +1,19 @@
 
 
-가상환경 준비
+### 가상환경 준비
 
 ```shell
 > conda info --envs
 > conda create -n machine_TF2_20 python=3.8 openssl
 > conda activate machine_TF_20
+
+# 가상환경 삭제
+> conda env remove --n 가상환경이름
 ```
 
 
 
-소프트웨어 설치
+### 소프트웨어 설치
 
 ```shell
 > conda install numpy pandas matplotlib nb_conda tensorflow
@@ -32,7 +35,7 @@
 
 
 
-jupyter notebook 접속
+### jupyter notebook 접속
 
 ```shell
 jupyter notebook --ip=0.0.0.0 --no-browser --port=8912
@@ -42,13 +45,15 @@ http://3.114.181.173:8912/ 로 접속
 
 
 
+### 파일 복사, 삭제
+
 복사 : cp -r cat_dog kaggle_cat_dog
 
 삭제 : rm -r kaggle_cat_dog 
 
 
 
-(AWS tqdm 쓸수있게하는거 설치)
+### (AWS tqdm 쓸수있게하는거 설치)
 
 conda install tqdm
 

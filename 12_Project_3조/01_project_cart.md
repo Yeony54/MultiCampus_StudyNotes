@@ -10,6 +10,13 @@
 
 
 
+## 선정배경
+
+- 시각장애인 애널리스트 [link](https://blog.toss.im/article/tinyquestions-disability-2)
+- 
+
+
+
 ## Data
 
 - [AIHub 롯데정보통신 상품 이미지 소개](https://aihub.or.kr/aidata/34145) 
