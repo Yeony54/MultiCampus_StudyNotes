@@ -20,6 +20,40 @@
 > pip install sklearn
 ```
 
+```shell
+> conda install pytorch
+> conda install torchvision
+> conda install pillow
+```
+
+
+
+### GPU 설치
+
+```shell
+# gpu 설치 (콘솔)
+> conda install tensorflow-gpu
+
+# gpu 확인 (콘솔)
+> nvcc -V
+> nvidia-smi
+```
+
+```python
+# jupyter 새로시작
+# jupyter에서 gpu 설정되었는지 확인하는 코드
+
+----------------------------------
+
+import tensorflow as tf
+from tensorflow.python.client import device_lib
+device_lib.list_local_devices()
+
+-----------------------------------
+
+tf.test.is_gpu_available()
+```
+
 
 
 - jupyter notebook --generate-config => 환경설정 파일을 만든다.
