@@ -16,7 +16,10 @@
 ### 소프트웨어 설치
 
 ```shell
-> conda install numpy pandas matplotlib nb_conda tensorflow
+> conda install numpy pandas matplotlib nb_conda 
+# tensorflow openpyxl seaborn tqdm 
+# conda install -c conda-forge ipywidgets
+# pip install sklearn easydict ptflops opencv-python torch_optimizer timm
 > pip install sklearn
 ```
 
@@ -25,6 +28,33 @@
 > conda install torchvision
 > conda install pillow
 ```
+
+```shell
+> pip install opencv-python
+```
+
+
+
+- jupyter notebook --generate-config => 환경설정 파일을 만든다.
+- mkdir jupyter_home => jupyter_home 폴더를 만든다.
+- cd .jupyter => jupyter 폴더로 이동
+- vi jupyter_notebook_config.py  => vi를 열고
+- :/notebook_dir  => 찾기
+- 앞에 '# ' 지우고 => 지우는 키는 'x'
+- 뒤에 경로를 /home/lab23/jupyter_home 으로 설정 => 값을 집어넣을 때 i를 눌러야함
+- 다 끝나고 저장 => :w- 나가기 => :q
+
+
+
+### (AWS tqdm 쓸수있게하는거 설치)
+
+conda install tqdm
+
+conda install -c conda-forge ipywidgets
+
+jupyter nbextension enable --py widgetsnbextension --sys-prefix
+
+=> jupyter notebook 다시 실행
 
 
 
@@ -56,14 +86,15 @@ tf.test.is_gpu_available()
 
 
 
-- jupyter notebook --generate-config => 환경설정 파일을 만든다.
-- mkdir jupyter_home => jupyter_home 폴더를 만든다.
-- cd .jupyter => jupyter 폴더로 이동
-- vi jupyter_notebook_config.py  => vi를 열고
--  :/notebook_dir  => 찾기
--  앞에 '# ' 지우고 => 지우는 키는 'x'
-- 뒤에 경로를 home/lab23/jupyter_home 으로 설정 => 값을 집어넣을 때 i를 눌러야함
--  다 끝나고 저장 => :w- 나가기 => :q
+### CUDA 확인
+
+```shell
+nvcc --version
+```
+
+Cuda compilation tools, release 10.0, V10.0.130
+
+
 
 
 
@@ -87,12 +118,3 @@ http://3.114.181.173:8912/ 로 접속
 
 
 
-### (AWS tqdm 쓸수있게하는거 설치)
-
-conda install tqdm
-
-conda install -c conda-forge ipywidgets
-
-jupyter nbextension enable --py widgetsnbextension --sys-prefix
-
-=> jupyter notebook 다시 실행
