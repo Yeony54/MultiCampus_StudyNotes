@@ -4,7 +4,9 @@ Markdown
 
 색상코드표 링크 : [iconic1987](https://m.blog.naver.com/hellonami/30189427178)
 
+<span style="color:red">red</span>
 
+**<span style="background-color:#fff5b1;">노란형광펜</span>**
 
 #### 1. 제목(Header)
 
