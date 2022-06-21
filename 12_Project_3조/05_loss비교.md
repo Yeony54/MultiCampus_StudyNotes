@@ -1,3 +1,57 @@
+돌릴 것
+
+resnet, 1e-4
+nadam
+
+resnet, 1e-5
+전체
+
+efficientnet, 1e-3
+rmsprop, nadam
+
+efficientnet, 1e-4/1e-5 전체
+
+regnet,1e-3
+rmsprop, nadam
+
+regnet, 1e-4 전체
+
+regnet,1e-5
+~~adam~~,, rmsprop, nadam
+
+
+돌리고 있는것
+
+혜주: 1e-5 모두(local, colab)
+지연: aws(1e-4 모두), 
+colab(efficientnet- 1e-3 rmsprop, nadam, 
+regnet- 1e-3 rmsprop, nadam)
+
+
+
+| resnet  | 1e-3                                 | 1e-4                                 | 1e-5                                 |
+| ------- | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| lamb    | **<span style="color:red">o</span>** | x 지연                               | **<span style="color:red">o</span>** |
+| adam    | **<span style="color:red">o</span>** | **<span style="color:red">o</span>** | x 혜주                               |
+| rmsprop | **<span style="color:red">o</span>** | - 지연                               | x 인후                               |
+| nadam   | x 지연                               | x 지연                               | x 인후                               |
+
+| efficientnet | 1e-3                                 | 1e-4 | 1e-5                                 |
+| ------------ | ------------------------------------ | ---- | ------------------------------------ |
+| lamb         | **<span style="color:red">o</span>** | x    | **<span style="color:red">o</span>** |
+| adam         | **<span style="color:red">o</span>** | x    | x                                    |
+| rmsprop      | x                                    | x    | x                                    |
+| nadam        | x                                    | x    | x                                    |
+
+| regnet  | 1e-3                                 | 1e-4 | 1e-5                                 |
+| ------- | ------------------------------------ | ---- | ------------------------------------ |
+| lamb    | **<span style="color:red">o</span>** | x    | **<span style="color:red">o</span>** |
+| adam    | **<span style="color:red">o</span>** | x    | **<span style="color:red">o</span>** |
+| rmsprop | x                                    | x    | - 혜주                               |
+| nadam   | x                                    | x    | x                                    |
+
+
+
 # AWS
 
 ### ResNet50_adam_0.01
@@ -337,6 +391,101 @@ Epoch [35] Train loss : [0.14769] Validation loss : [0.06753]
 
 ### ResNet50_rmsprop_0.001
 
+model : ResNet50
+optimizer : rmsprop, learning rate : 0.001
+Epoch [1] Train loss : [3.35417] Validation loss : [2.39606]
+
+------------------ Model Saved ------------------
+Epoch [2] Train loss : [2.52962] Validation loss : [2.32801]
+
+------------------ Model Saved ------------------
+Epoch [3] Train loss : [2.45487] Validation loss : [2.01286]
+
+------------------ Model Saved ------------------
+Epoch [4] Train loss : [2.27917] Validation loss : [1.81988]
+
+------------------ Model Saved ------------------
+Epoch [5] Train loss : [2.04786] Validation loss : [1.80478]
+
+------------------ Model Saved ------------------
+Epoch [6] Train loss : [1.88663] Validation loss : [1.47574]
+
+------------------ Model Saved ------------------
+Epoch [7] Train loss : [1.90080] Validation loss : [1.46492]
+
+------------------ Model Saved ------------------
+Epoch [8] Train loss : [1.69238] Validation loss : [1.98727]
+Epoch [9] Train loss : [1.62257] Validation loss : [1.22354]
+
+------------------ Model Saved ------------------
+Epoch [10] Train loss : [1.47799] Validation loss : [2.20861]
+Epoch [11] Train loss : [1.32850] Validation loss : [1.65192]
+Epoch [12] Train loss : [1.17640] Validation loss : [0.78717]
+
+------------------ Model Saved ------------------
+Epoch [13] Train loss : [0.98374] Validation loss : [0.60705]
+
+------------------ Model Saved ------------------
+Epoch [14] Train loss : [0.96496] Validation loss : [0.56426]
+
+------------------ Model Saved ------------------
+Epoch [15] Train loss : [0.84155] Validation loss : [0.66995]
+Epoch [16] Train loss : [0.73865] Validation loss : [1.80810]
+Epoch [17] Train loss : [0.72031] Validation loss : [0.40449]
+
+------------------ Model Saved ------------------
+Epoch [18] Train loss : [0.65213] Validation loss : [0.59535]
+Epoch [19] Train loss : [0.67031] Validation loss : [0.84093]
+Epoch [20] Train loss : [0.56660] Validation loss : [0.28107]
+
+------------------ Model Saved ------------------
+Epoch [21] Train loss : [0.50095] Validation loss : [0.44212]
+Epoch [22] Train loss : [0.51197] Validation loss : [1.57999]
+Epoch [23] Train loss : [0.48016] Validation loss : [0.24882]
+
+------------------ Model Saved ------------------
+Epoch [24] Train loss : [0.37785] Validation loss : [0.14272]
+
+------------------ Model Saved ------------------
+Epoch [25] Train loss : [0.43952] Validation loss : [0.15705]
+Epoch [26] Train loss : [0.39566] Validation loss : [0.10707]
+
+------------------ Model Saved ------------------
+Epoch [27] Train loss : [0.31202] Validation loss : [0.20217]
+Epoch [28] Train loss : [0.37781] Validation loss : [0.20109]
+Epoch [29] Train loss : [0.41559] Validation loss : [0.19421]
+Epoch [30] Train loss : [0.27404] Validation loss : [0.11120]
+Epoch [31] Train loss : [0.33405] Validation loss : [0.31247]
+Epoch [32] Train loss : [0.31019] Validation loss : [0.09925]
+
+------------------ Model Saved ------------------
+Epoch [33] Train loss : [0.29282] Validation loss : [0.87535]
+Epoch [34] Train loss : [0.30737] Validation loss : [0.06428]
+
+------------------ Model Saved ------------------
+Epoch [35] Train loss : [0.31007] Validation loss : [0.13626]
+Epoch [36] Train loss : [0.25789] Validation loss : [1.00369]
+Epoch [37] Train loss : [0.25700] Validation loss : [0.16964]
+Epoch [38] Train loss : [0.24665] Validation loss : [0.33293]
+Epoch [39] Train loss : [0.19152] Validation loss : [0.16407]
+Epoch [40] Train loss : [0.25178] Validation loss : [0.65157]
+Epoch [41] Train loss : [0.27964] Validation loss : [0.04857]
+
+------------------ Model Saved ------------------
+Epoch [42] Train loss : [0.19150] Validation loss : [0.01646]
+
+------------------ Model Saved ------------------
+Epoch [43] Train loss : [0.23162] Validation loss : [0.11015]
+Epoch [44] Train loss : [0.18209] Validation loss : [0.04323]
+Epoch [45] Train loss : [0.21656] Validation loss : [0.08539]
+Epoch [46] Train loss : [0.20948] Validation loss : [1.07671]
+Epoch [47] Train loss : [0.22202] Validation loss : [0.05338]
+Epoch [48] Train loss : [0.25658] Validation loss : [0.04115]
+Epoch [49] Train loss : [0.15386] Validation loss : [0.00727]
+
+------------------ Model Saved ------------------
+Epoch [50] Train loss : [0.17062] Validation loss : [0.05228]
+
 ### ResNet50_nadam_0.001
 
 ### ResNet50_adam_0.0001
@@ -500,3 +649,85 @@ Epoch [36] Train loss : [0.08070] Validation loss : [0.08916]
 Epoch [37] Train loss : [0.11283] Validation loss : [0.20141]
 
 ### EfficientNetb4_rmsprop_0.01
+
+model : EfficientNetb4
+optimizer : rmsprop, learning rate : 0.01
+Epoch [1] Train loss : [16.41693] Validation loss : [6.49829]
+
+------------------ Model Saved ------------------
+Epoch [2] Train loss : [3.93759] Validation loss : [2.80680]
+
+------------------ Model Saved ------------------
+Epoch [3] Train loss : [2.57483] Validation loss : [2.18103]
+
+------------------ Model Saved ------------------
+Epoch [4] Train loss : [2.02991] Validation loss : [21.91300]
+Epoch [5] Train loss : [1.66463] Validation loss : [1.20073]
+
+------------------ Model Saved ------------------
+Epoch [6] Train loss : [1.35434] Validation loss : [0.93361]
+
+------------------ Model Saved ------------------
+Epoch [7] Train loss : [2.14836] Validation loss : [1.72735]
+Epoch [8] Train loss : [1.15302] Validation loss : [1.76601]
+Epoch [9] Train loss : [0.96608] Validation loss : [0.65510]
+
+------------------ Model Saved ------------------
+Epoch [10] Train loss : [0.81410] Validation loss : [0.66957]
+Epoch [11] Train loss : [0.93451] Validation loss : [0.41283]
+
+------------------ Model Saved ------------------
+Epoch [12] Train loss : [0.61766] Validation loss : [1.43316]
+Epoch [13] Train loss : [0.87440] Validation loss : [0.57543]
+Epoch [14] Train loss : [0.62522] Validation loss : [0.43959]
+Epoch [15] Train loss : [1.25748] Validation loss : [0.43395]
+Epoch [16] Train loss : [0.38057] Validation loss : [0.26378]
+
+------------------ Model Saved ------------------
+Epoch [17] Train loss : [0.39177] Validation loss : [0.23283]
+
+------------------ Model Saved ------------------
+Epoch [18] Train loss : [0.36418] Validation loss : [0.11417]
+
+------------------ Model Saved ------------------
+Epoch [19] Train loss : [2.77444] Validation loss : [1.61719]
+Epoch [20] Train loss : [0.65614] Validation loss : [0.25599]
+Epoch [21] Train loss : [0.39216] Validation loss : [0.10140]
+
+------------------ Model Saved ------------------
+Epoch [22] Train loss : [0.37509] Validation loss : [0.83130]
+Epoch [23] Train loss : [0.36227] Validation loss : [0.07629]
+
+------------------ Model Saved ------------------
+Epoch [24] Train loss : [0.24851] Validation loss : [0.77365]
+Epoch [25] Train loss : [0.35790] Validation loss : [1.01861]
+Epoch [26] Train loss : [0.34944] Validation loss : [0.17645]
+Epoch [27] Train loss : [0.27853] Validation loss : [0.22879]
+Epoch [28] Train loss : [0.30335] Validation loss : [0.06236]
+
+------------------ Model Saved ------------------
+Epoch [29] Train loss : [1.38105] Validation loss : [0.17211]
+Epoch [30] Train loss : [0.17917] Validation loss : [0.05237]
+
+------------------ Model Saved ------------------
+Epoch [31] Train loss : [0.20941] Validation loss : [0.42043]
+Epoch [32] Train loss : [0.19138] Validation loss : [0.09381]
+Epoch [33] Train loss : [0.20570] Validation loss : [0.04724]
+
+------------------ Model Saved ------------------
+Epoch [34] Train loss : [0.16065] Validation loss : [0.04014]
+
+------------------ Model Saved ------------------
+Epoch [35] Train loss : [0.35239] Validation loss : [0.76807]
+Epoch [36] Train loss : [0.25001] Validation loss : [0.68073]
+Epoch [37] Train loss : [0.35976] Validation loss : [0.04149]
+Epoch [38] Train loss : [0.16142] Validation loss : [0.08942]
+Epoch [39] Train loss : [0.18558] Validation loss : [0.16551]
+Epoch [40] Train loss : [0.17803] Validation loss : [0.13476]
+Epoch [41] Train loss : [0.27275] Validation loss : [0.10605]
+Epoch [42] Train loss : [0.16338] Validation loss : [0.39066]
+Epoch [43] Train loss : [0.12914] Validation loss : [0.10276]
+Epoch [44] Train loss : [1.23465] Validation loss : [0.09415]
+
+### EfficientNetb4_nadam_0.01
+
