@@ -58,9 +58,11 @@ commit간의 비교, branch간의 비교도 가능하다.
 
    `~숫자`로 숫자를 명시할 수 있다. `HEAD~1`은 HEAD 첫번째 값을 의미
 
+---
 
+git fork 된것 private로 만들기
 
-
+https://stackoverflow.com/questions/10065526/github-how-to-make-a-fork-of-public-repository-private
 
 
 
